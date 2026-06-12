@@ -1,0 +1,97 @@
+/* ============================================================
+   Sparx — Color System · "Sparx Green"
+   Forest green-black base, brand green for accents, lime as the
+   pop color for big numbers on DARK sections only.
+   Anchored to the v2.1 spec palette. AA-minded.
+   ============================================================ */
+
+:root {
+  /* ---- Forest (dark base — deep green-black, from the logo) ---- */
+  --forest:    #0C1A12;   /* dark section bg / strong text on light */
+  --forest-2:  #14271C;   /* cards on dark */
+  --forest-3:  #1C3527;   /* raised / hover on dark */
+
+  /* ---- Cloud / white (light surfaces) ---- */
+  --cloud:  #F3F7F3;      /* light section bg (greenish white) */
+  --white:  #FFFFFF;      /* cards on light */
+
+  /* ---- Graphite (neutral dark — third section background) ---- */
+  --graphite:   #21262A;  /* neutral graphite section bg */
+  --graphite-2: #2B3136;  /* cards on graphite */
+  --graphite-3: #353C42;  /* raised / hover on graphite */
+
+  /* ---- Green ramp (brand) ---- */
+  --green-100: #E4F2E6;   /* tint fills, compliance badges */
+  --green-300: #5CC76C;   /* = lime */
+  --green:     #109B24;   /* brand: accents, icons, underlines */
+  --green-cta: #0C7D1C;   /* CTA fill (white text, AA) + links on light */
+  --green-cta-hover: #0A6817;
+  --green-cta-press: #08570F;
+
+  /* ---- Lime (POP — big numbers / accent on DARK only) ---- */
+  --lime: #5CC76C;
+
+  /* ---- Greens-gray text + lines ---- */
+  --mist:       #5B6B60;             /* secondary text on light */
+  --mist-dark:  #9DB0A2;             /* secondary text on dark */
+  --text-light: #E7F0E9;             /* body text on dark */
+  --line:       #E3EAE4;             /* borders on light */
+  --line-dark:  rgba(255,255,255,0.10); /* borders on dark */
+  --line-dark-strong: rgba(255,255,255,0.18);
+
+  /* ---- Support / semantic states ---- */
+  --positive: #0C7D1C;
+  --warning:  #B9770A;
+  --danger:   #C53B22;
+  --danger-soft: #FBE7E2;
+
+  /* ============================================================
+     SEMANTIC ALIASES — prefer these in components & layouts
+     ============================================================ */
+
+  /* Surfaces */
+  --bg-page: var(--cloud);
+  --bg-ink: var(--forest);
+  --bg-ink-deep: #081208;
+  --bg-graphite: var(--graphite);          /* neutral dark section */
+  --surface-card: var(--white);
+  --surface-card-ink: var(--forest-2);
+  --surface-card-graphite: var(--graphite-2);
+  --surface-subtle: var(--green-100);
+
+  /* Text on light */
+  --text-strong: var(--forest);
+  --text-body: #2B362F;
+  --text-muted: var(--mist);
+  --text-faint: #8A988E;
+
+  /* Text on ink */
+  --text-on-ink: var(--text-light);
+  --text-on-ink-muted: var(--mist-dark);
+  --text-on-ink-faint: #6E7F73;
+
+  /* Action — single dominant CTA uses --accent-cta */
+  --accent: var(--green);            /* accents, icons, underlines */
+  --accent-cta: var(--green-cta);    /* primary CTA fill + links on light */
+  --accent-cta-hover: var(--green-cta-hover);
+  --accent-cta-press: var(--green-cta-press);
+  --on-accent: var(--white);
+  --accent-soft: var(--green-100);
+
+  /* Stats */
+  --stat-on-light: var(--green-cta);
+  --stat-on-dark: var(--lime);
+
+  /* Compliance / trust badge (RODO, ISO) */
+  --trust-bg: rgba(12,125,28,0.12);
+  --trust-fg: var(--green-cta);
+
+  /* Borders */
+  --border: var(--line);
+  --border-strong: #CFDBD2;
+  --border-ink: var(--line-dark);
+  --border-ink-strong: var(--line-dark-strong);
+
+  /* Focus ring */
+  --ring: rgba(16,155,36,0.45);
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sparx — zbuduj własne AI i zyskaj miliony</title>
+  <meta name="description" content="Partner technologiczny AI. Budujemy rozwiązania, które należą do Ciebie — sprawdzone testem wartości, zanim zainwestujesz. Zgodne z RODO, klasy produkcyjnej." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.sparx.ai/" />
+  <meta property="og:title" content="Sparx — zbuduj własne AI i zyskaj miliony" />
+  <meta property="og:description" content="Partner technologiczny AI. Budujemy rozwiązania, które należą do Ciebie." />
+  <meta property="og:type" content="website" />
+
+  <!-- SPARX Design System tokens -->
+  <link rel="stylesheet" href="../_ds/sparx-design-system-59b6c535-077c-4bc5-a7dd-9f4620cdbd40/fonts/fonts.css" />
+  <link rel="stylesheet" href="../_ds/sparx-design-system-59b6c535-077c-4bc5-a7dd-9f4620cdbd40/tokens/colors.css" />
+  <link rel="stylesheet" href="../_ds/sparx-design-system-59b6c535-077c-4bc5-a7dd-9f4620cdbd40/tokens/typography.css" />
+  <link rel="stylesheet" href="../_ds/sparx-design-system-59b6c535-077c-4bc5-a7dd-9f4620cdbd40/tokens/spacing.css" />
+  <link rel="stylesheet" href="../_ds/sparx-design-system-59b6c535-077c-4bc5-a7dd-9f4620cdbd40/tokens/radius.css" />
+  <link rel="stylesheet" href="../_ds/sparx-design-system-59b6c535-077c-4bc5-a7dd-9f4620cdbd40/tokens/shadows.css" />
+  <link rel="stylesheet" href="../_ds/sparx-design-system-59b6c535-077c-4bc5-a7dd-9f4620cdbd40/tokens/motion.css" />
+  <link rel="stylesheet" href="../_ds/sparx-design-system-59b6c535-077c-4bc5-a7dd-9f4620cdbd40/tokens/base.css" />
+  <link rel="stylesheet" href="../_ds/sparx-design-system-59b6c535-077c-4bc5-a7dd-9f4620cdbd40/styles.css" />
+
+  <!-- Landing kit layout -->
+  <link rel="stylesheet" href="styles/kit.css" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React 18 -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Intercept createRoot: bundle calls it 3× — we reuse the first root to suppress React warning -->
+  <!-- Also redirect bundle's baked-in asset paths (../assets/*.svg) to our local copies       -->
+  <script>
+    (function() {
+      /* 1. Patch createRoot to reuse a single root */
+      var origCR = ReactDOM.createRoot.bind(ReactDOM);
+      ReactDOM.createRoot = function(container, opts) {
+        if (window.__sparxRoot && container === document.getElementById('root')) {
+          return window.__sparxRoot;
+        }
+        window.__sparxRoot = origCR(container, opts);
+        return window.__sparxRoot;
+      };
+
+      /* 2. Redirect bundle's baked-in ../assets/ paths to our sparx/assets/ copies */
+      var srcDesc = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src');
+      if (srcDesc && srcDesc.set) {
+        Object.defineProperty(HTMLImageElement.prototype, 'src', {
+          configurable: true, enumerable: true,
+          get: srcDesc.get,
+          set: function(v) {
+            if (typeof v === 'string') {
+              if (v.indexOf('sparx-logo-ondark') !== -1) v = 'assets/sparx-logo-ondark.png';
+              else if (v.indexOf('sparx-logo-onlight') !== -1) v = 'assets/sparx-logo-onlight.png';
+              else if (v.indexOf('hero-peaks') !== -1) v = 'assets/hero-peaks.svg';
+            }
+            srcDesc.set.call(this, v);
+          }
+        });
+      }
+    })();
+  </script>
+
+  <!-- SPARX DS bundle — exports window.SPARXDesignSystem_59b6c5 + window.SX + window.SXKit -->
+  <script src="../_ds/sparx-design-system-59b6c535-077c-4bc5-a7dd-9f4620cdbd40/_ds_bundle.js"></script>
+
+  <!-- Landing JSX modules (each exports to window.SX / window.SXKit) -->
+  <script type="text/babel" src="js/helpers.jsx"></script>
+  <script type="text/babel" src="js/nav-hero.jsx"></script>
+  <script type="text/babel" src="js/sections-mid.jsx"></script>
+  <script type="text/babel" src="js/sections-work.jsx"></script>
+  <script type="text/babel" src="js/sections-end.jsx"></script>
+  <script type="text/babel" src="js/app.jsx"></script>
+</body>
+</html>

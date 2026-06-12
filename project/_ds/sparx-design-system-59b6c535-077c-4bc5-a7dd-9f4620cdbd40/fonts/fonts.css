@@ -1,0 +1,7 @@
+/* ============================================================
+   Sparx — Webfonts
+   Inter (system-wide), via Google Fonts — matches the live site.
+   Consumers linking styles.css get this at runtime.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');

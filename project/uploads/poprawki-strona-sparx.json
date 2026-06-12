@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "projekt": "Strona Sparx v1 — poprawki po feedbacku Krzysztofa",
+    "data": "2026-06-11",
+    "instrukcja_dla_claude_design": "Pracujemy ITERACYJNIE. Wykonuj WYŁĄCZNIE jedno zadanie (task) na raz — to, o które poproszę po ID (np. 'wykonaj T1'). Po wykonaniu pokaż zmianę i czekaj na moją akceptację, zanim przejdziesz dalej. Nie zmieniaj niczego poza zakresem wskazanego zadania. Zachowaj obecny styl wizualny strony (kolory, typografia, layout).",
+    "zasady_globalne": [
+      "ZAKAZ słowa 'tani', 'tanio', 'taniej' w całym serwisie — wszędzie zastępuj przez 'test wartości' / 'dowód wartości' / 'najpierw dowód, potem inwestycja'.",
+      "Sparx pozycjonujemy jako partnera technologicznego budującego AI klienta — nie deprecjonujemy wdrożeń, sami też wdrażamy.",
+      "Język polski, ton: konkretny, partnerski, bez korpomowy."
+    ]
+  },
+  "tasks": [
+    {
+      "id": "T1",
+      "sekcja": "Hero (sekcja 1)",
+      "priorytet": "wysoki",
+      "zadanie": "Usuń słowo 'tani' z podtytułu i przeredaguj go.",
+      "obecnie": "Sparx stworzy tani test wartości Twojej oferty. Płacisz za to, co działa. Zyskujesz rynkową przewagę.",
+      "zmien_na": "Sparx buduje AI, które należy do Ciebie. Test wartości najpierw — inwestycja, gdy masz dowód.",
+      "uwagi": "Hasło główne 'Zbuduj własne AI i zyskaj miliony.' zostaje bez zmian. Alternatywa podtytułu: 'Sparx stworzy test wartości Twojej oferty. Najpierw dowód, potem inwestycja.'"
+    },
+    {
+      "id": "T2",
+      "sekcja": "Rozwiązanie / Metoda Sparx (sekcja 3) — kafelek 1",
+      "priorytet": "wysoki",
+      "zadanie": "W kafelku 'Najpierw dowód, potem inwestycja' usuń 'taniego testu' i rozbuduj argumentację: wyjaśnij DLACZEGO pierwszy etap walidacji jest kluczowy.",
+      "obecnie": "Większość projektów pada na przejściu z pilotażu na produkcję (MIT, 2025). Zaczynamy od taniego testu — jeśli nie działa, nic nie ryzykujesz. Jeśli Sparx działa, skalujesz pewnie.",
+      "zmien_na": "Większość projektów AI pada na przejściu z pilotażu na produkcję (MIT, 2025). Dlatego zanim zainwestujesz, sprawdzamy na Twoich danych, czy rozwiązanie naprawdę przyniesie wartość. Masz dowód — skalujesz pewnie. Nie ma dowodu — nie ryzykujesz.",
+      "uwagi": "Kafelki 'Twoje AI' i 'Zgodność' bez zmian."
+    },
+    {
+      "id": "T3",
+      "sekcja": "Rozwiązanie / Metoda Sparx (sekcja 3) — porównanie na dole",
+      "priorytet": "średni",
+      "zadanie": "Przeredaguj porównanie 'Firmy wdrażające vs Sparx' — obecna wersja sugeruje, że nie robimy wdrożeń, a Sparx TEŻ jest firmą wdrożeniową. Usuń niespójność, zachowując przekaz o własności i partnerstwie.",
+      "obecnie": "FIRMY WDRAŻAJĄCE: Sprzedają Ci system na swojej licencji. / SPARX: Razem budujemy Twoją przewagę rynkową.",
+      "zmien_na": "INNI: Sprzedają Ci gotowy system na swojej licencji. / SPARX: Wdrażamy AI, które jest Twoją własnością — razem budujemy Twoją przewagę rynkową.",
+      "uwagi": "Etykieta 'INNI' do dyskusji — może być 'TYPOWY DOSTAWCA'. Kluczowe: nie przeciwstawiać się 'wdrażaniu' jako takiemu."
+    },
+    {
+      "id": "T4",
+      "sekcja": "Jak to działa (sekcja 4) — krok 1",
+      "priorytet": "wysoki",
+      "zadanie": "Zamień krok 1 'Szybkie badanie' (za szeroki, za ogólny) na krok pokazujący nasze doświadczenie — klient ma od razu widzieć, że rozumiemy, co robimy.",
+      "obecnie": "1. Szybkie badanie — Radary + edukacja",
+      "zmien_na": "1. Poznaj nasze doświadczenie — działające Radary i realizacje w wielu branżach",
+      "uwagi": "Etykieta może być krótsza, np. 'Doświadczenie' z podpisem 'Radary + realizacje'. Pozostałe kroki 2–5 bez zmian."
+    },
+    {
+      "id": "T5",
+      "sekcja": "Jak to działa (sekcja 4) — model 3 'Dedykowany zespół (Try & Hire)'",
+      "priorytet": "wysoki",
+      "zadanie": "Przeredaguj opis trzeciego modelu — obecnie jest zlepkiem dwóch pozostałych. Ma być wyraźnie odrębny: budujemy i rekrutujemy ludzi, których klient może w pełni przejąć na swój pokład.",
+      "obecnie": "Budujemy i rekrutujemy dedykowanych ludzi, których możesz w pełni wynająć do projektu.",
+      "zmien_na": "Budujemy system i równolegle rekrutujemy dedykowany zespół, który go rozwija. Gdy zechcesz — przejmujesz tych ludzi w pełni na swój pokład.",
+      "uwagi": "Modele 'Projekt + kod' i 'Model SaaSowy' bez zmian."
+    },
+    {
+      "id": "T6",
+      "sekcja": "Realizacje (sekcja 5) — Przetargi Radar",
+      "priorytet": "średni",
+      "zadanie": "Rozbuduj opis Przetargi Radar o analitykę danych, którą generuje moduł (panel analityczny, wnioski z danych historycznych, trendy cenowe).",
+      "obecnie": "Radar wyłapuje ogłoszenia z całego rynku, pokazuje kto wygrywał wcześniej: za ile i z jakim produktem. Porównywarka dopasowuje Twoją ofertę do wymagań.",
+      "zmien_na": "Radar wyłapuje ogłoszenia z całego rynku i pokazuje, kto wygrywał wcześniej: za ile i z jakim produktem. Moduł analityczny przetwarza dane historyczne w trendy cenowe i wnioski, a porównywarka dopasowuje Twoją ofertę do wymagań.",
+      "uwagi": "Karta NFZ Radar bez zmian."
+    },
+    {
+      "id": "T7",
+      "sekcja": "Realizacje (sekcja 6/7) — karta Retail/Kosmetyka",
+      "priorytet": "średni",
+      "zadanie": "Dodaj do karty Retail/Kosmetyka drugi moduł: moduł ofertowy dla działów handlowych/ofertowych (na bazie oferty dla sieci drogeryjnej). Treść merytoryczną dostarczy Michał — wstaw placeholder. Przy okazji popraw literówkę CTA: 'Zobacz o demo' → 'Zobacz demo'.",
+      "obecnie": "Karta zawiera tylko aplikację rekomendacyjną (składniki, alergeny, parametry).",
+      "zmien_na": "Dodaj drugi blok w karcie: 'Moduł ofertowy dla działów handlowych — [PLACEHOLDER: treść od Michała]'.",
+      "uwagi": "Karty NCBR Radar, LIMS i statystyka 59% bez zmian."
+    },
+    {
+      "id": "T8",
+      "sekcja": "Dla kogo (sekcja 8)",
+      "priorytet": "średni",
+      "zadanie": "Rozbuduj obie kolumny — sekcja jest za uboga. W 'Instytucje publiczne' dodaj wymiar społeczny: wdrożenie AI w instytucji to także pomoc dla społeczeństwa i obywateli.",
+      "obecnie": "Firmy: Własny Radar lub system to przewaga: więcej trafnych decyzji, mniej ręcznej pracy, rozwiązanie jest Twoje. / Instytucje publiczne: Porządek w danych, przejrzystość, zgodność i jasne dane do audytów i badań.",
+      "zmien_na": "Firmy: Własny Radar lub system to realna przewaga: więcej trafnych decyzji, mniej ręcznej pracy, szybsza reakcja na rynek — a rozwiązanie i dane są Twoje, bez licencji, z której nie da się wyjść. / Instytucje publiczne: Porządek w danych, przejrzystość i zgodność, jasne dane do audytów i badań. A przede wszystkim: lepsze, szybsze usługi dla obywateli — AI w instytucji publicznej to realna pomoc dla społeczeństwa (jak nasz publiczny NFZ Radar).",
+      "uwagi": "Można dodać po 2–3 punkty/ikony na kolumnę, jeśli layout na to pozwala."
+    },
+    {
+      "id": "T9",
+      "sekcja": "Jak pracujemy (sekcja 9) — podpisy partnerów",
+      "priorytet": "niski",
+      "zadanie": "Zmień podpisy pod zdjęciami na skalowalną konwencję 'Partner — obszar'.",
+      "obecnie": "Partner — biznes i sprzedaż / Partner — technologia",
+      "zmien_na": "Partner zarządzający / Partner technologiczny",
+      "uwagi": "Konwencja ma działać dla przyszłych partnerów: 'Partner — security', 'Partner — marketing' itd."
+    },
+    {
+      "id": "T10",
+      "sekcja": "Jak pracujemy (sekcja 9) — box 'Radar Report'",
+      "priorytet": "niski",
+      "zadanie": "Zamień box newslettera 'Radar Report' na CTA zachęcające do rozmowy — nie mamy jeszcze planu publikacji newslettera.",
+      "obecnie": "Radar Report: Co miesiąc jeden sygnał wyłapany przez nasze Radary. [pole e-mail + Zapisz się]",
+      "zmien_na": "Box CTA: 'Porozmawiajmy o AI w Twojej firmie' + przycisk 'Umów rozmowę' (link jak w sekcji kontakt).",
+      "uwagi": "Decyzja o newsletterze odłożona — nie usuwaj kodu na stałe, jeśli łatwo go zakomentować/ukryć."
+    }
+  ],
+  "bez_zmian": [
+    "Sekcja 2 (Problem) — zostaje w całości.",
+    "Karty NFZ Radar, NCBR Radar, LIMS — zostają.",
+    "Sekcja kontakt + stopka — zostają."
+  ]
+}

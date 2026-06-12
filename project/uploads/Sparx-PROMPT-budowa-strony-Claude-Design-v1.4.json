@@ -1,0 +1,1014 @@
+{
+  "_meta": {
+    "nazwa": "Sparx — prompt budujący stronę (dla Claude Design)",
+    "wersja": "1.4",
+    "data": "2026-06-08",
+    "jezyk_promptu": "polski (instrukcje) + treści dwujęzyczne PL/EN",
+    "jak_uzyc": "Wklej CAŁY ten JSON do Claude Design jako pierwszą wiadomość. Niżej możesz dograć realne zrzuty produktów i zdjęcia partnerów (oznaczone jako placeholdery). To kompletny brief — Claude Design ma zbudować z niego gotową, dwujęzyczną stronę.",
+    "uwaga_o_jezykach": "Strona jest DWUJĘZYCZNA. Polski = czysty, naturalny PL. Angielski = czysty BRYTYJSKI angielski, pisany jako oryginał, NIE tłumaczony słowo-w-słowo z polskiego. Pisownia brytyjska (licence, organise, programme), bez amerykanizmów (NIE: drugstore, license, million-dollar). Nazwy produktów (NFZ Radar, NCBR Radar, Przetargi Radar) zostają po polsku jako marki, z krótką angielską glosą przy pierwszym użyciu.",
+    "uwaga_o_design_systemie": "Design system jest JUŻ ZATWIERDZONY (paleta „Sparx Green”, typografia Inter z hierarchią opartą na wadze). NIE proponuj go od nowa i nie pytaj o niego. Użyj tokenów z sekcji `design_system` dokładnie tak, jak podane. Zacznij pracę od sekcji HERO.",
+    "copy_zablokowane_globalnie": "Hasło główne i podtytuł hero (PL i EN) oraz główny tagline są ZATWIERDZONE — nie zmieniaj ich treści.",
+    "zmiany_v1_1": [
+      "Naprawiono: przycisk CTA na sekcji Kontakt (odwrócony — białe wypełnienie + zielony tekst, bo tło sekcji jest green_cta).",
+      "Cały angielski przepisany natywnie po brytyjsku (usunięto kalki i amerykanizmy: drugstore→high-street pharmacy, license→licence, million-dollar→worth millions).",
+      "Dodano angielskie glosy przy nazwach PL: NFZ, NCBR, Przetargi Radar; „body-leasing”→„Dedicated team (Try & Hire)”; oficjalna nazwa uczelni: Poznań University of Life Sciences.",
+      "Doprecyzowano relację „trzy filary” vs karty sekcji Rozwiązanie (filar „Partner” rozwijany w sekcji „Jak pracujemy”).",
+      "Linki zewnętrzne w kartach realizacji otwierają się w nowej karcie (target _blank).",
+      "PL: „bebechy” → „Ten sam silnik…”.",
+      "Dodano noty: token graphite jest opcjonalny/nieużywany; weryfikacja NIP; test kontrastu sekcji Kontakt."
+    ],
+    "zrodla_prawdy": [
+      "Sparx-strona-spec.json (struktura + copy, v2.1)",
+      "SPARX Design System (zip, finalny — paleta zielona + Inter)",
+      "Sparx-narracja-i-architektura.md (strategia, lejek, modele)",
+      "Sparx-5-kart-case-study.md (realizacje)",
+      "Sparx-argumenty-na-strone.md (dane + cytowania)"
+    ],
+    "zmiany_v1_2": [
+      "Copy przeszło redakcję dwóch native'ów (brytyjski EN + PL).",
+      "PL: usunięto kalki („na chmurze”→„w chmurze”, „karmi aplikację”→„zasila”, „wygrał historycznie”→„wygrywał wcześniej”, „w 24h”→„w ciągu 24 godzin”), anglicyzmy („transparentność”→„przejrzystość”), znak „=” rozpisany, „body-leasing”→„Zespół dedykowany”, przywrócono „już/already” i wzajemność „między sobą”.",
+      "EN: usunięto powtórzenia („an advantage that stays yours” zróżnicowane; „proof…proof”→„evidence”), poprawiono liczbę poj./mn. (genetyka „a production-grade system”), domknięto translationese w sekcji „partnerzy” i „contact”.",
+      "Hero (PL+EN) i główne hasło pozostają nietknięte (zatwierdzone)."
+    ],
+    "zmiany_v1_3": [
+      "Audyt poufności + weryfikacja danych u źródeł (websearch).",
+      "POUFNOŚĆ: literalna nazwa klienta retail usunięta z całego pliku (także z guardraili) — zostaje tylko „klient retail (znany wewnętrznie)”.",
+      "ŚCISŁOŚĆ: EN drogerii „high-street pharmacy chain” → „health & beauty retailer” (klient to drogeria, nie apteka).",
+      "DANE: 38% i 59% oznaczone jako USA (źródła to badania amerykańskie).",
+      "DANE: niezweryfikowane „60% spowolniło (EY 2026)” ZASTĄPIONE przez 42% — S&P Global 2025 (porzucenie większości projektów AI przed produkcją, wzrost z 17%; próba: Ameryka Płn. + Europa).",
+      "Genetyka/UPP — nazwa POZOSTAJE (zgoda klienta wg decyzji Jaya)."
+    ],
+    "weryfikacja_danych": {
+      "95% (MIT 2025)": "POTWIERDZONE — „The GenAI Divide: State of AI in Business 2025” (MIT NANDA): 95% organizacji bez mierzalnego zwrotu z GenAI.",
+      "38% (Conference Board 2026)": "POTWIERDZONE i doprecyzowane jako prezesi w USA — C-Suite Outlook 2026: AI najczęściej (38%) wskazywany zewnętrzny czynnik mogący zaszkodzić biznesowi, więcej niż jakikolwiek inny.",
+      "60% (EY 2026)": "NIEPOTWIERDZONE — dane EY 2026 mówią wręcz o 80% CEO zwiększających inwestycje w AI. USUNIĘTE.",
+      "42% (S&P Global 2025)": "NOWE, POTWIERDZONE — Voice of the Enterprise: AI & ML 2025 (próba 1006 firm, Ameryka Płn. + Europa): odsetek firm porzucających większość inicjatyw AI przed produkcją wzrósł z 17% do 42%.",
+      "59% (Capital One / Bain 2025)": "POTWIERDZONE i oznaczone jako USA — ~59–60% Amerykanów używa GenAI przy zakupach (Capital One Shopping / Omnisend 2025); „podwojenie zapytań zakupowych w ChatGPT” — Bain 2025.",
+      "80% (EY 2026)": "POTWIERDZONE — EY CEO Outlook 2026: 80% CEO planuje w 2026 zwiększyć nakłady na AI, tylko 1% je zmniejszyć. Używane jako pozytywna rama (kierunek jest słuszny)."
+    },
+    "zmiany_v1_4": [
+      "Dodano POZYTYWNĄ RAMĘ na wejściu sekcji Problem: 80% prezesów zwiększa w 2026 nakłady na AI (EY CEO Outlook 2026) — „kierunek jest słuszny, problem leży w wykonaniu”. PL + EN.",
+      "EY wraca do źródeł w stopce — tym razem jako zweryfikowane 80% (rosnące inwestycje), nie jako błędne „60% spowolniło”.",
+      "Nic nie usunięto: 95% (MIT), 38% (Conference Board, USA), 42% (S&P Global), 59% (Capital One/Bain, USA) pozostają."
+    ]
+  },
+  "rola_i_zadanie": {
+    "rola": "Jesteś starszym projektantem produktu i copywriterem konwersji, dwujęzycznym (PL + native British English). Projektujesz i piszesz w jednym — tak, by forma i słowo razem sprzedawały.",
+    "zadanie": "Zbuduj nowoczesny, dwujęzyczny (PL domyślnie / EN przełącznik) landing page firmy SPARX — partnera technologicznego AI. Strona ma być spójna z zatwierdzonym design systemem i przekazem poniżej.",
+    "jeden_cel": "Jeden dominujący cel konwersji: umówienie 30-minutowej rozmowy/demo. Jedno dominujące CTA na całej stronie: „Umów rozmowę” / „Book a call” (kolor green_cta). Każda sekcja delikatnie prowadzi wzrok do tego CTA.",
+    "efekt_na_odbiorcy": "Po obejrzeniu strony decydent ma pomyśleć: „po co miałbym iść do kogokolwiek innego?”. Ma od razu czuć, że Sparx rozumie jego sytuację lepiej niż konkurencja i odpowiada dokładnie na jego obawy: ryzyko, koszt, vendor lock-in, zgodność. Strona ma budzić ulgę i pewność, nie ekscytację technologiczną.",
+    "metoda_pracy": [
+      "Design system jest zatwierdzony — NIE pokazuj go jako pierwszego ekranu, od razu buduj.",
+      "Buduj sekcjami w kolejności: HERO → Problem → Rozwiązanie → Jak to działa → Realizacje → Dla kogo → Jak pracujemy → Kontakt → Stopka.",
+      "Po każdej sekcji pokaż wynik i poproś o akceptację, zanim przejdziesz dalej.",
+      "Buduj obie wersje językowe równolegle — EN nie jest dodatkiem, ma być równie dopracowany jak PL.",
+      "Po wersji desktop przełącz na podgląd mobilny i dopnij mobile-first (sticky dolny pasek CTA, hamburger, jedna kolumna).",
+      "Na końcu: szlif animacji, kontrast AA, alt do grafik, meta/SEO, baner zgody na cookies."
+    ]
+  },
+  "design_system": {
+    "nazwa_palety": "Sparx Green",
+    "zasada_naczelna": "Forest green-black jako baza ciemnych sekcji, brand green do akcentów i CTA, lime jako kolor POP wyłącznie na DUŻYCH liczbach na CIEMNYCH sekcjach. Spokojnie, premium, bez neonów, bez estetyki krypto.",
+    "kolory": {
+      "forest": "#0C1A12 — tło ciemnych sekcji / mocny tekst na jasnym",
+      "forest-2": "#14271C — karty na ciemnym",
+      "forest-3": "#1C3527 — hover/raised na ciemnym",
+      "cloud": "#F3F7F3 — tło jasnych sekcji (lekko zielonkawa biel)",
+      "white": "#FFFFFF — karty na jasnym",
+      "graphite": "#21262A — neutralna ciemna sekcja. UWAGA: zdefiniowany, ale w tym układzie NIE używany. Trzymaj jako rezerwę; nie wstawiaj bez decyzji.",
+      "green-100": "#E4F2E6 — wypełnienia tint, badge'e zgodności",
+      "green": "#109B24 — kolor marki: akcenty, ikony, podkreślenia",
+      "green-cta": "#0C7D1C — wypełnienie CTA (biały tekst, kontrast AA) + linki na jasnym + tło sekcji Kontakt",
+      "green-cta-hover": "#0A6817",
+      "green-cta-press": "#08570F",
+      "lime": "#5CC76C — POP: TYLKO duże liczby/akcent na CIEMNYCH sekcjach",
+      "mist": "#5B6B60 — tekst drugorzędny na jasnym",
+      "mist-dark": "#9DB0A2 — tekst drugorzędny na ciemnym",
+      "text-light": "#E7F0E9 — tekst na ciemnym",
+      "text-body": "#2B362F — tekst body na jasnym",
+      "line": "#E3EAE4 — obramowania na jasnym",
+      "line-dark": "rgba(255,255,255,0.10) — obramowania na ciemnym",
+      "trust-bg": "rgba(12,125,28,0.12) — tło badge'y RODO/ISO",
+      "trust-fg": "#0C7D1C — tekst badge'y zgodności",
+      "ring": "rgba(16,155,36,0.45) — pierścień focus"
+    },
+    "rytm_sekcji": "Sekcje naprzemiennie: ciemna (forest) → jasna (cloud) → ciemna → jasna… Akcent zielony prowadzi wzrok do CTA. Sekcja Kontakt na pełnym green_cta.",
+    "typografia": {
+      "rodzina": "Inter (system-wide) — nagłówki różnią się WAGĄ i ciasnym trackingiem, nie osobnym krojem. (Finalna decyzja — nie używaj Space Grotesk/Sora.)",
+      "wagi": "400 regular · 500 medium · 600 semibold · 700 bold",
+      "skala_desktop": {
+        "display_hero": "72px / waga 700 / line-height 1.05 / letter-spacing -0.03em",
+        "h1": "62px",
+        "h2": "40px / waga 600",
+        "h3": "22px",
+        "lead": "20px — akapit wprowadzający",
+        "body": "17px / line-height 1.6",
+        "overline_eyebrow": "12px / UPPERCASE / letter-spacing 0.16em",
+        "stat_number": "88px (zakres 64–96) / waga 700"
+      },
+      "line_height": "Nagłówki 1.05–1.1 · body 1.6"
+    },
+    "spacing_layout": {
+      "baza": "8px",
+      "section_y": "clamp(4rem, 8vw, 8rem)",
+      "container": "1200px (wąski wariant 760px dla bloków tekstowych)",
+      "gutter": "clamp(1.25rem, 5vw, 2.5rem)",
+      "mobile_bar_h": "4.5rem (wysokość sticky dolnego paska CTA)"
+    },
+    "promienie": "xs 4 · sm 8 · md 12 · lg 16 · xl 24 · pill 999 (pill tylko przyciski i badge)",
+    "cienie": "Miękkie, niskie, lekko zielonkawe. Karty: shadow-sm/md. CTA: delikatne uniesienie (shadow-cta), BEZ poświaty. Ciemne sekcje opierają się na obramowaniach + siatce kropek.",
+    "komponenty": {
+      "card": "rogi 16px, miękki niski cień, bez neonowych poświat",
+      "button_primary": "wypełnienie green_cta, biały tekst, pill — główne CTA „Umów rozmowę”/„Book a call”",
+      "button_primary_na_zielonym": "WYJĄTEK: na sekcji Kontakt (tło green_cta) przycisk MUSI być odwrócony — białe wypełnienie + tekst w green_cta (hover: cloud). NIGDY zielony przycisk na zielonym tle.",
+      "button_secondary": "ghost / obrys — akcje drugorzędne (np. „Zobacz realizacje”)",
+      "badge": "pill, mały — tagi sektorów i zgodność (trust)",
+      "stat": "ogromna liczba (lime na ciemnym / green_cta na jasnym) + krótki opis + źródło małym drukiem"
+    },
+    "ruch_motion": {
+      "zasada": "Powściągliwy, pewny siebie. Bez bounce, bez hype'u.",
+      "wejscia": "Delikatny fade-up sekcji przy scrollu (dur ~640ms, ease-out).",
+      "liczby": "Count-up na dużych liczbach (dur ~1600ms).",
+      "hero": "Subtelny ruch akcentu (szczytów) w hero.",
+      "dostepnosc": "Bezwzględnie respektuj prefers-reduced-motion."
+    },
+    "wizualia_zasady": [
+      "Motyw przewodni: wznoszące się zielone szewrony/szczyty (jak znak z logo — „go beyond the limit”), prowadzące wzrok w górę-w prawo ku najjaśniejszemu szczytowi w kolorze lime; subtelna siatka kropek w tłach ciemnych.",
+      "Wizuale jako lekkie SVG/CSS (skalowalne), nie ciężkie pliki rastrowe.",
+      "Logo: napis „Sparx”, litera „x” w kolorze green.",
+      "Brak stockowych zdjęć-banałów.",
+      "NIE twórz logotypów klientów ani fałszywych opinii/liczb.",
+      "Realne zrzuty produktów wstaw jako oznaczone placeholdery z opisem i alt — do podmiany."
+    ]
+  },
+  "marka_i_przekaz": {
+    "pozycjonowanie": {
+      "pl": "Sparx — partner technologiczny AI. Budujemy rozwiązania, które należą do Ciebie.",
+      "en": "Sparx — your technology partner for AI. We build solutions you own."
+    },
+    "kim_jestesmy_kim_nie": "Sparx = PARTNER TECHNOLOGICZNY, nie software house. Sprzedajemy własne rozwiązanie AI, które klient przetestuje tanio, zanim wyda miliony — i które jest jego. Radary (NFZ, NCBR, Przetargi, Retail) to flagowe produkty: dowód, że potrafimy, i magnes na uwagę — nie one są ofertą.",
+    "zasada_uniwersalnosci": "Przekaz i marka są UNIWERSALNE — dla każdej branży. Medyczna to tylko pierwsze ostrze wejścia na rynek (kolejność GTM), NIE specjalizacja. Case studies pokazują wiele branż (ochrona zdrowia, sektor publiczny, biotech, retail, przemysł) — ten sam silnik działa wszędzie. Persona = uniwersalny CEO/decydent, nie „medyczny”.",
+    "trzy_filary": [
+      {
+        "pl": "Jest Twoje — kod i dane w Twojej chmurze, żadnej licencji za miliony.",
+        "en": "It's yours — your code and data, on your cloud. No licence costing millions."
+      },
+      {
+        "pl": "Najpierw dowód, potem inwestycja — tani test wartości zamiast dużego ryzyka na starcie.",
+        "en": "Proof first, investment second — a low-cost test instead of a big bet up front."
+      },
+      {
+        "pl": "Partner, nie dostawca — obiektywna diagnoza, znajomość branży, rozwój razem z Tobą.",
+        "en": "A partner, not a supplier — a straight diagnosis, real sector know-how, and growth alongside you."
+      }
+    ],
+    "filar_dodatkowy_zgodnosc": {
+      "pl": "Klasy produkcyjnej i zgodne — RODO, ISO 27001, ślad audytowy, hosting w UE.",
+      "en": "Production-grade and compliant — GDPR, ISO 27001, audit trails, EU hosting."
+    },
+    "uwaga_filary": "W sekcji „Rozwiązanie” pokazujemy 3 karty: Najpierw dowód · Jest Twoje · Zgodność. Filar „Partner, nie dostawca” rozwijamy osobno w sekcji „Jak pracujemy”. To celowe — nie jest to sprzeczność.",
+    "persona": "Uniwersalny decydent (CEO / dyrektor / członek zarządu) w firmie lub instytucji 200–2000 osób, w branży z dużą ilością danych lub regulowanej. Robocza: „Marek”, 47 lat. Ma w tym roku „zrobić coś z AI”, boi się przepalić budżet i uwięzienia u dostawcy, chce czegoś własnego, czym pochwali się zarządowi."
+  },
+  "glos_i_copy": {
+    "ton": "Premium, wiarygodny, „głos rozsądku” na przegrzanym rynku AI. Pewny siebie, ale nie chełpliwy. Cieplejszy niż korporacyjny — partnerski.",
+    "zasady_pisania_PL": [
+      "Mów do jednej osoby, na „Ty”. Korzyść najpierw, mechanizm potem.",
+      "Konkret zamiast ogólników. Zero buzzwordów typu „synergia”, „transformacja cyfrowa”, „rewolucja AI”.",
+      "Krótkie, mocne zdania. Kontrast (oni vs. my) tam, gdzie wzmacnia.",
+      "Każda liczba ma krótkie źródło w nawiasie (np. „MIT, 2025”). Pełne linki w stopce.",
+      "Nie obiecuj cudów. Sprzedajesz spokój, kontrolę i własność — nie hype."
+    ],
+    "zasady_pisania_EN": [
+      "Pisz natywny BRYTYJSKI angielski, jak rodzimy copywriter — NIE tłumacz z polskiego słowo-w-słowo.",
+      "Pisownia brytyjska: licence (rzeczownik), organise, recognise, programme, centre, optimise.",
+      "Bez amerykanizmów: nigdy „drugstore” (użyj „pharmacy”/„high-street pharmacy”), nigdy „license” jako rzeczownik, nie odwołuj się do dolara („million-dollar” → „worth millions”).",
+      "Nazwy własne produktów zostają po polsku (NFZ Radar, NCBR Radar, Przetargi Radar), ale przy PIERWSZYM użyciu daj krótką glosę po angielsku w nawiasie.",
+      "Idiomy oddawaj sensem, nie dosłownie. Jeśli zdanie brzmi jak tłumaczenie — przepisz je."
+    ],
+    "linie_mocy_do_wplecenia": [
+      {
+        "pl": "Nie wynajmujesz AI. Budujesz własną przewagę.",
+        "en": "You don't rent AI. You build an advantage that's yours."
+      },
+      {
+        "pl": "Najpierw dowód. Potem faktura.",
+        "en": "Proof first. Invoice second."
+      },
+      {
+        "pl": "Zanim wydasz miliony, wydaj kilkaset tysięcy — i sprawdź.",
+        "en": "Before you spend millions, spend a few hundred thousand — and find out."
+      },
+      {
+        "pl": "Wjedź do firmy z czymś, co jest naprawdę Twoje.",
+        "en": "Walk into the boardroom with something that's genuinely yours."
+      },
+      {
+        "pl": "Najpierw mówimy, czy w ogóle tego potrzebujesz. Dopiero potem, jak to zbudować.",
+        "en": "First we tell you whether you even need this. Only then, how to build it."
+      }
+    ],
+    "czego_unikac": [
+      "Estetyka i język krypto/Web3, neony, „do the impossible”.",
+      "Fałszywe metryki, wymyślone opinie klientów, logotypy klientów.",
+      "Nazywanie klienta Retail po imieniu (patrz guardraile).",
+      "Niezweryfikowana statystyka lock-in 94% — NIE używać na stronie."
+    ]
+  },
+  "nawigacja": {
+    "logo": "Sparx (litera „x” w kolorze green)",
+    "pozycje": [
+      {
+        "id": "problem",
+        "pl": "Problem",
+        "en": "Problem"
+      },
+      {
+        "id": "rozwiazanie",
+        "pl": "Rozwiązanie",
+        "en": "Solution"
+      },
+      {
+        "id": "realizacje",
+        "pl": "Realizacje",
+        "en": "Work"
+      },
+      {
+        "id": "dlakogo",
+        "pl": "Dla kogo",
+        "en": "Who it's for"
+      },
+      {
+        "id": "kontakt",
+        "pl": "Kontakt",
+        "en": "Contact"
+      }
+    ],
+    "uwaga_nawigacja": "Świadomie krótkie menu — sekcje „Jak to działa” i „Jak pracujemy” nie mają własnych pozycji w nav (są częścią naturalnego scrolla). Stopka też lista tylko tych pięciu.",
+    "przelacznik_jezyka": "PL / EN w prawym górnym rogu; zapis wyboru; domyślnie PL; przechodzi między realnymi ścieżkami /pl i /en (nie tylko stan w przeglądarce).",
+    "cta": {
+      "pl": "Umów rozmowę",
+      "en": "Book a call",
+      "cel": "#kontakt"
+    },
+    "zachowanie": "Sticky. Na mobile: hamburger + pełnoekranowe menu. CTA zawsze widoczne (desktop nav + mobilny dolny pasek)."
+  },
+  "sekcje": [
+    {
+      "id": "hero",
+      "kolejnosc": 1,
+      "tlo": "forest",
+      "uklad": "Desktop: 2 kolumny — lewa ~55% (tekst + CTA), prawa ~45% grafika „wznoszących się szczytów”. Mobile: 1 kolumna; H1 + podtytuł + CTA above the fold; grafika ukryta.",
+      "copy_zablokowane": "Hasło główne i podtytuł (PL i EN) są ZATWIERDZONE — nie zmieniaj ich treści.",
+      "naglowek": {
+        "pl": "Zbuduj własne AI i zaoszczędź miliony.",
+        "en": "Build your own AI and save millions.",
+        "akcent": {
+          "pl": "zaoszczędź miliony.",
+          "en": "save millions.",
+          "kolor": "lime"
+        }
+      },
+      "podtytul": {
+        "pl": "Sparx buduje AI, które należy do Ciebie. Najpierw szybki, tani test wartości — płacisz dopiero za to, co naprawdę działa.",
+        "en": "Sparx builds AI that belongs to you. A fast, low-cost proof of value first — you only pay for what actually works."
+      },
+      "cta": [
+        {
+          "styl": "primary",
+          "pl": "Umów rozmowę",
+          "en": "Book a call",
+          "cel": "#kontakt"
+        },
+        {
+          "styl": "ghost",
+          "pl": "Zobacz realizacje",
+          "en": "See our work",
+          "cel": "#realizacje"
+        }
+      ],
+      "linia_dowodu": {
+        "pl": "Działające produkty: NFZ Radar · NCBR Radar · Przetargi Radar",
+        "en": "Live products: NFZ Radar · NCBR Radar · Przetargi Radar"
+      },
+      "grafika": {
+        "id": "hero-peaks",
+        "typ": "svg",
+        "opis": "Abstrakcyjne wznoszące się zielone szewrony/szczyty (nawiązanie do znaku z logo) prowadzące wzrok w górę-w prawo ku najjaśniejszemu szczytowi w kolorze lime; subtelna siatka kropek w tle; lekka animacja. Symbolizuje „go beyond the limit”.",
+        "alt": {
+          "pl": "Wznoszące się szczyty Sparx",
+          "en": "Sparx ascending peaks"
+        }
+      }
+    },
+    {
+      "id": "problem",
+      "kolejnosc": 2,
+      "tlo": "cloud",
+      "uklad": "Desktop: eyebrow + nagłówek + 3 wielkie liczniki w rzędzie + puenta. Mobile: liczniki w kolumnie.",
+      "eyebrow": {
+        "pl": "Problem",
+        "en": "The problem"
+      },
+      "naglowek": {
+        "pl": "Wszyscy wdrażają AI. Większość na tym traci.",
+        "en": "Everyone's deploying AI. Most are losing money on it."
+      },
+      "lead": {
+        "pl": "80% prezesów planuje w 2026 zwiększyć nakłady na AI (EY, 2026) — kierunek jest słuszny. Gorzej z wykonaniem:",
+        "en": "80% of CEOs plan to increase their AI investment in 2026 (EY, 2026) — the direction is right. It's the execution that stumbles:"
+      },
+      "liczniki": [
+        {
+          "wartosc": "95%",
+          "opis": {
+            "pl": "pilotaży AI nie przynosi mierzalnego zwrotu",
+            "en": "of AI pilots deliver no measurable return"
+          },
+          "zrodlo": "MIT, „The GenAI Divide”, 2025",
+          "kolor_na_jasnym": "green_cta"
+        },
+        {
+          "wartosc": "38%",
+          "opis": {
+            "pl": "prezesów w USA wskazuje AI jako największe zewnętrzne zagrożenie dla biznesu",
+            "en": "of US CEOs name AI their biggest external business threat"
+          },
+          "zrodlo": "The Conference Board, 2026",
+          "kolor_na_jasnym": "green_cta"
+        },
+        {
+          "wartosc": "42%",
+          "opis": {
+            "pl": "firm porzuciło większość projektów AI, zanim trafiły na produkcję (wzrost z 17% rok wcześniej)",
+            "en": "of companies abandoned most of their AI initiatives before production (up from 17% a year earlier)"
+          },
+          "zrodlo": "S&P Global, Voice of the Enterprise, 2025",
+          "kolor_na_jasnym": "green_cta"
+        }
+      ],
+      "puenta": {
+        "pl": "Problemem nie jest AI. Problemem jest wdrażanie go bez dowodu, bez kontekstu Twoich danych i bez planu na produkcję.",
+        "en": "AI isn't the problem. Rolling it out with no proof, no grounding in your own data and no plan for production — that is."
+      }
+    },
+    {
+      "id": "rozwiazanie",
+      "kolejnosc": 3,
+      "tlo": "forest",
+      "uklad": "Desktop: eyebrow + nagłówek + 3 karty + pasek kontrastu „inni vs my” (2 kolumny). Mobile: karty i kontrast w kolumnie.",
+      "eyebrow": {
+        "pl": "Rozwiązanie",
+        "en": "Solution"
+      },
+      "naglowek": {
+        "pl": "Nasza odpowiedź: wdrażaj mądrze.",
+        "en": "Our answer: deploy it wisely."
+      },
+      "karty": [
+        {
+          "tytul": {
+            "pl": "Najpierw dowód, potem inwestycja",
+            "en": "Proof first, investment second"
+          },
+          "tresc": {
+            "pl": "Większość projektów upada na przejściu z pilotażu do produkcji (MIT, 2025). Zaczynamy od taniego testu wartości — jeśli nie zadziała, nic nie ryzykujesz. Jeśli zadziała, skalujesz pewnie.",
+            "en": "Most projects fail at the jump from pilot to production (MIT, 2025). We start with a low-cost proof of value — if it doesn't work, you've risked nothing. If it does, you scale with confidence."
+          }
+        },
+        {
+          "tytul": {
+            "pl": "Jest Twoje",
+            "en": "It's yours"
+          },
+          "tresc": {
+            "pl": "Kod i dane w Twojej chmurze. Żadnej licencji za miliony, z której nie da się wyjść. Budujesz przewagę, która zostaje Twoja.",
+            "en": "Your code and data, on your cloud. No licence costing millions that you can't walk away from. The advantage you build stays yours."
+          }
+        },
+        {
+          "tytul": {
+            "pl": "Klasy produkcyjnej i zgodne",
+            "en": "Production-grade and compliant"
+          },
+          "tresc": {
+            "pl": "Skoro AI bywa „największym ryzykiem”, budujemy je jak system o znaczeniu krytycznym.",
+            "en": "If AI can be your biggest risk, we build it like a critical system."
+          },
+          "badge": [
+            "RODO / GDPR",
+            "ISO 27001",
+            {
+              "pl": "Hosting UE",
+              "en": "EU hosting"
+            }
+          ]
+        }
+      ],
+      "kontrast": {
+        "inni": {
+          "pl": "Sprzedają Ci system na swojej licencji.",
+          "en": "They sell you a system on their licence."
+        },
+        "my": {
+          "pl": "Budujemy przewagę, która zostaje Twoja.",
+          "en": "We build an advantage that stays yours."
+        }
+      }
+    },
+    {
+      "id": "jak",
+      "kolejnosc": 4,
+      "tlo": "cloud",
+      "uklad": "Desktop: eyebrow + nagłówek + poziomy diagram 5 kroków ze strzałkami + rząd 3 pigułek (modele) + nota. Mobile: kroki pionowo.",
+      "eyebrow": {
+        "pl": "Jak to działa",
+        "en": "How it works"
+      },
+      "naglowek": {
+        "pl": "Pięć małych kroków zamiast jednego wielkiego kontraktu.",
+        "en": "Five small steps instead of one big contract."
+      },
+      "kroki": [
+        {
+          "n": 1,
+          "tytul": {
+            "pl": "Uwaga",
+            "en": "Attention"
+          },
+          "opis": {
+            "pl": "Radary + edukacja",
+            "en": "Radars and education"
+          }
+        },
+        {
+          "n": 2,
+          "tytul": {
+            "pl": "Warsztat",
+            "en": "Workshop"
+          },
+          "opis": {
+            "pl": "Diagnoza potrzeb",
+            "en": "Needs diagnosis"
+          }
+        },
+        {
+          "n": 3,
+          "tytul": {
+            "pl": "Tani test",
+            "en": "Low-cost test"
+          },
+          "opis": {
+            "pl": "Dowód wartości",
+            "en": "Proof of value"
+          }
+        },
+        {
+          "n": 4,
+          "tytul": {
+            "pl": "Budowa",
+            "en": "Build"
+          },
+          "opis": {
+            "pl": "Trzy modele",
+            "en": "Three models"
+          }
+        },
+        {
+          "n": 5,
+          "tytul": {
+            "pl": "Własność",
+            "en": "Ownership"
+          },
+          "opis": {
+            "pl": "Twój kod, Twoje dane",
+            "en": "Your code and data"
+          }
+        }
+      ],
+      "modele": [
+        {
+          "pl": "Projekt + kod",
+          "en": "Project + code",
+          "opis": {
+            "pl": "Budujemy, przekazujemy kod źródłowy — rozwijasz sam lub z nami.",
+            "en": "We build it and hand over the source code — you take it further yourself or with us."
+          }
+        },
+        {
+          "pl": "Model SaaS-owy",
+          "en": "SaaS model",
+          "opis": {
+            "pl": "Budujemy, utrzymujemy i rozwijamy — właścicielem wciąż jesteś Ty.",
+            "en": "We build, maintain and develop it — and you stay the owner."
+          }
+        },
+        {
+          "pl": "Zespół dedykowany (Try & Hire)",
+          "en": "Dedicated team (Try & Hire)",
+          "opis": {
+            "pl": "Budujemy i rekrutujemy dedykowanych ludzi — możesz ich przejąć.",
+            "en": "We build the solution and recruit two or three dedicated people — and you can bring them in-house."
+          }
+        }
+      ],
+      "nota": {
+        "pl": "Wchodzisz na dowolnym kroku i płynnie przechodzisz dalej — bez zasady „wszystko albo nic”.",
+        "en": "Start at any step and move on smoothly — never all-or-nothing."
+      },
+      "grafika": {
+        "id": "funnel-5",
+        "typ": "svg-diagram",
+        "opis": "Poziomy diagram 5 numerowanych kafli połączonych strzałkami; numery w kółkach koloru green. Pod kafelkiem „Budowa” trzy pigułki z modelami.",
+        "alt": {
+          "pl": "Pięć kroków współpracy",
+          "en": "Five steps of working together"
+        }
+      }
+    },
+    {
+      "id": "realizacje",
+      "kolejnosc": 5,
+      "tlo": "forest",
+      "uklad": "Desktop: nadtytuł + siatka 5 kart (3+2) + pasek z liczbą retailową. Mobile: karty pełna szerokość lub karuzela.",
+      "nadtytul": {
+        "pl": "Jeden silnik. Wiele branż. Twoje dane.",
+        "en": "One engine. Many sectors. Your data."
+      },
+      "podtytul_sekcji": {
+        "pl": "Ten sam silnik działa w ochronie zdrowia, sektorze publicznym, biotechnologii, retailu i przemyśle. Twoja branża będzie następna.",
+        "en": "The same engine runs in healthcare, the public sector, biotech, retail and industry. Your sector is next."
+      },
+      "linki_zewnetrzne": "Wszystkie linki wychodzące (nfz-radar.pl, ncbr-radar.pl) otwieraj w nowej karcie (target=_blank, rel=noopener), żeby nie wyprowadzać odwiedzającego z lejka.",
+      "karty": [
+        {
+          "id": "przetargi",
+          "tag": {
+            "pl": "Medyczna / farma · Produkt",
+            "en": "Medical / pharma · Product"
+          },
+          "tytul": {
+            "pl": "Wygrywaj przetargi, które konkurencja przegapia",
+            "en": "Win the tenders your competitors miss"
+          },
+          "tresc": {
+            "pl": "Przetargi Radar wyłapuje ogłoszenia z całego rynku, pokazuje, kto wygrywał wcześniej — za ile i jakim produktem — a wbudowana porównywarka dopasowuje Twoją ofertę do wymagań. Jedno miejsce zamiast godzin ręcznego przeszukiwania.",
+            "en": "Przetargi Radar (a public-tender radar) pulls notices from across the market, shows who won in the past — for how much and with which product — and a built-in comparator matches your offer to the requirements. One place, instead of hours of manual searching."
+          },
+          "dowod": {
+            "pl": "Dowód: działający produkt dla branży medycznej — od ogłoszenia, przez analitykę, po gotową ofertę. Dane z wielu źródeł, zgodność z RODO.",
+            "en": "Proof: a live product for the medical sector — from notice, through analytics, to a finished bid. Multi-source data, GDPR-compliant."
+          },
+          "cta": {
+            "pl": "Zobacz demo",
+            "en": "See a demo",
+            "cel": "#kontakt"
+          },
+          "obraz": {
+            "id": "shot-przetargi",
+            "typ": "screenshot-placeholder",
+            "opis": "[[ ZRZUT: Przetargi Radar — lista dopasowanych przetargów + panel analityki ]]",
+            "alt": {
+              "pl": "Zrzut Przetargi Radar",
+              "en": "Przetargi Radar screenshot"
+            }
+          }
+        },
+        {
+          "id": "nfz",
+          "tag": {
+            "pl": "Ochrona zdrowia · Sektor publiczny · Na żywo",
+            "en": "Healthcare · Public sector · Live"
+          },
+          "tytul": {
+            "pl": "Radar kolejek dla całej Polski",
+            "en": "A waiting-list radar for an entire country"
+          },
+          "tresc": {
+            "pl": "Monitoruje czasy oczekiwania na świadczenia w całym kraju na podstawie oficjalnych danych NFZ, a moduł predykcyjny — trenowany codziennie — prognozuje, jak kolejki zmienią się w czasie.",
+            "en": "It tracks treatment waiting times nationwide from official NFZ (Poland's national health fund) data, and a prediction module — retrained daily — forecasts how the lists will move over time."
+          },
+          "dowod": {
+            "pl": "Dowód: publicznie dostępne narzędzie obejmujące wszystkie województwa. Potrafimy okiełznać dane w skali kraju.",
+            "en": "Proof: a public tool covering every region — evidence we can tame data at national scale."
+          },
+          "cta": {
+            "pl": "Wejdź na nfz-radar.pl",
+            "en": "Visit nfz-radar.pl",
+            "cel": "https://nfz-radar.pl",
+            "target": "_blank"
+          },
+          "obraz": {
+            "id": "shot-nfz",
+            "typ": "screenshot-placeholder",
+            "opis": "[[ ZRZUT: NFZ Radar — mapa kolejek Polski z filtrami ]]",
+            "alt": {
+              "pl": "Zrzut NFZ Radar",
+              "en": "NFZ Radar screenshot"
+            }
+          }
+        },
+        {
+          "id": "ncbr",
+          "tag": {
+            "pl": "R&D · Sektor publiczny · Na żywo",
+            "en": "R&D · Public sector · Live"
+          },
+          "tytul": {
+            "pl": "Znajdź granty, których nie widać w wyszukiwarce",
+            "en": "Find the grants search can't see"
+          },
+          "tresc": {
+            "pl": "Semantyczne przeszukiwanie projektów wspartych przez NCBR i fundusze UE — według znaczenia, nie słów kluczowych. Filtruj po programie, beneficjencie, temacie i lokalizacji, a asystent AI odpowie na Twoje pytania.",
+            "en": "Semantic search across projects funded by NCBR (Poland's national R&D agency) and EU programmes — by meaning, not keywords. Filter by programme, beneficiary, topic and location, and ask an AI assistant your questions."
+          },
+          "dowod": {
+            "pl": "Dowód: narzędzie obywatelskie sfinansowane z własnych środków, które zwiększa przejrzystość wydatków na innowacje.",
+            "en": "Proof: a self-funded civic tool that makes innovation spending more transparent."
+          },
+          "cta": {
+            "pl": "Wejdź na ncbr-radar.pl",
+            "en": "Visit ncbr-radar.pl",
+            "cel": "https://ncbr-radar.pl",
+            "target": "_blank"
+          },
+          "obraz": {
+            "id": "shot-ncbr",
+            "typ": "screenshot-placeholder",
+            "opis": "[[ ZRZUT: NCBR Radar — wyniki semantycznego wyszukiwania grantów ]]",
+            "alt": {
+              "pl": "Zrzut NCBR Radar",
+              "en": "NCBR Radar screenshot"
+            }
+          }
+        },
+        {
+          "id": "genetyka",
+          "tag": {
+            "pl": "Biotech · Laboratorium · Instytucja",
+            "en": "Biotech · Laboratory · Institution"
+          },
+          "tytul": {
+            "pl": "System klasy produkcyjnej — z pełną zgodnością",
+            "en": "A production-grade system — fully compliant"
+          },
+          "tresc": {
+            "pl": "Kompletny system zarządzania laboratorium: od rejestracji próbki, przez procesy analityczne i algorytmy dopasowania DNA (pokrewieństwo, identyfikacja), po raporty i rozliczenia. Zastąpił rozproszone, przestarzałe narzędzia jednym systemem dostępnym zdalnie.",
+            "en": "A complete laboratory information management system: from sample registration, through analytical workflows and DNA-matching algorithms (kinship, identification), to reports and billing. It replaced a patchwork of legacy tools with a single, remotely accessible system."
+          },
+          "dowod": {
+            "pl": "Dowód: wdrożenie dla Laboratorium Badań Markerów Genetycznych Uniwersytetu Przyrodniczego w Poznaniu. Zgodność ISO 27001 i RODO, pełny ślad audytowy.",
+            "en": "Proof: deployed for the Genetic Marker Research Laboratory at Poznań University of Life Sciences. ISO 27001 and GDPR-compliant, with a full audit trail."
+          },
+          "cta": {
+            "pl": "Porozmawiajmy o systemie",
+            "en": "Talk to us about your system",
+            "cel": "#kontakt"
+          },
+          "obraz": {
+            "id": "icon-genetyka",
+            "typ": "svg-icon",
+            "opis": "Ikona sektora biotech: stylizowana helisa DNA w linii green.",
+            "alt": {
+              "pl": "Ikona genetyki",
+              "en": "Genetics icon"
+            }
+          }
+        },
+        {
+          "id": "retail",
+          "tag": {
+            "pl": "Retail / kosmetyka · Demo na życzenie",
+            "en": "Retail / cosmetics · Demo on request"
+          },
+          "tytul": {
+            "pl": "Twoi klienci już pytają AI o Twoje produkty — niech odpowiada Twoimi danymi",
+            "en": "Your customers already ask AI about your products — so let it answer with your data"
+          },
+          "tresc": {
+            "pl": "Coraz więcej klientów wybiera kosmetyki i produkty zdrowotne z pomocą AI — robiąc zdjęcie składu i pytając czat. Radar dla retailu zasila Twoją aplikację Twoimi danymi (składniki, alergeny, parametry), więc klient dostaje bezpieczną rekomendację od Twojej marki — a Ty widzisz, jak i czego szuka.",
+            "en": "More and more shoppers now choose cosmetics and health products through AI — photographing the ingredients list and asking a chatbot. A retail radar feeds your own app with your data (ingredients, allergens, specifications), so the customer gets a safe recommendation from your brand — and you can see how, and what, they search for."
+          },
+          "dowod": {
+            "pl": "Dowód: zbudowany dla dużej sieci drogeryjnej (demo na życzenie). Wzmacnia świadomość marki, wspiera sprzedaż i dostarcza mierzalne KPI.",
+            "en": "Proof: built for a major health & beauty retailer (demo on request). It builds brand awareness, supports sales and delivers measurable KPIs."
+          },
+          "cta": {
+            "pl": "Poproś o demo",
+            "en": "Request a demo",
+            "cel": "#kontakt"
+          },
+          "guardrail": "NIE nazywać klienta retail publicznie. Nazwa znana wewnętrznie — NIE umieszczać jej w pliku ani na stronie. PL: „duża sieć drogeryjna”. EN: „a major health & beauty retailer”.",
+          "obraz": {
+            "id": "icon-retail",
+            "typ": "svg-icon",
+            "opis": "Ikona sektora retail: koszyk/etykieta produktu z akcentem green (AI).",
+            "alt": {
+              "pl": "Ikona retail",
+              "en": "Retail icon"
+            }
+          }
+        }
+      ],
+      "pasek_retail": {
+        "wartosc": "59%",
+        "tekst": {
+          "pl": "konsumentów w USA używa już AI przy zakupach, a liczba zapytań zakupowych w ChatGPT podwoiła się w pół roku.",
+          "en": "of US shoppers already buy with AI, and shopping queries on ChatGPT doubled in six months."
+        },
+        "zrodlo": "Bain / Capital One Shopping, 2025"
+      }
+    },
+    {
+      "id": "dlakogo",
+      "kolejnosc": 6,
+      "tlo": "cloud",
+      "uklad": "Desktop: eyebrow + nagłówek + 2 kolumny. Mobile: kolumny jedna pod drugą.",
+      "eyebrow": {
+        "pl": "Dla kogo",
+        "en": "Who it's for"
+      },
+      "naglowek": {
+        "pl": "Dla firm i dla instytucji.",
+        "en": "For companies and institutions alike."
+      },
+      "kolumny": [
+        {
+          "tytul": {
+            "pl": "Firmy",
+            "en": "Companies"
+          },
+          "tresc": {
+            "pl": "Własny Radar lub system to przewaga: więcej trafień, mniej ręcznej pracy, rozwiązanie na Twojej własności.",
+            "en": "Your own radar or system is an edge — more hits, less manual work, and a solution you own outright."
+          }
+        },
+        {
+          "tytul": {
+            "pl": "Instytucje",
+            "en": "Institutions"
+          },
+          "tresc": {
+            "pl": "Porządek w danych, przejrzystość, zgodność i pełny ślad audytowy.",
+            "en": "Well-ordered data, transparency, compliance and a full audit trail."
+          }
+        }
+      ]
+    },
+    {
+      "id": "partnerzy",
+      "kolejnosc": 7,
+      "tlo": "forest",
+      "uklad": "Desktop: lewa — tekst + 2 partnerów; prawa — karta newslettera. Mobile: jedna kolumna.",
+      "eyebrow": {
+        "pl": "Jak pracujemy",
+        "en": "How we work"
+      },
+      "naglowek": {
+        "pl": "Po partnersku — z Tobą i między sobą.",
+        "en": "As partners — with you, and with each other."
+      },
+      "tresc": {
+        "pl": "Sparx tworzą partnerzy, nie „dyrektorzy”. Jeden filar prowadzi biznes i sprzedaż, drugi — technologię; to kompetencje, które się nie nakładają. Tak samo partnersko, uczciwie i otwarcie traktujemy klientów: najpierw mówimy, czy w ogóle tego potrzebujesz.",
+        "en": "Sparx is run by partners, not 'directors'. One leads business and sales, the other technology — skills that don't overlap. We treat clients the same way: as partners, honestly and openly — and we'll tell you first whether you even need this."
+      },
+      "ludzie": [
+        {
+          "rola": {
+            "pl": "Partner — biznes i sprzedaż",
+            "en": "Partner — business and sales"
+          },
+          "zdjecie": "[[ ZDJĘCIE: Partner biznesowy ]]"
+        },
+        {
+          "rola": {
+            "pl": "Partner — technologia",
+            "en": "Partner — technology"
+          },
+          "zdjecie": "[[ ZDJĘCIE: Partner technologiczny ]]"
+        }
+      ],
+      "newsletter": {
+        "nazwa": "Radar Report",
+        "opis": {
+          "pl": "Co miesiąc jeden sygnał wyłapany przez nasze Radary.",
+          "en": "One signal a month, caught by our radars."
+        },
+        "cta": {
+          "pl": "Zapisz się",
+          "en": "Subscribe"
+        }
+      }
+    },
+    {
+      "id": "kontakt",
+      "kolejnosc": 8,
+      "tlo": "green_cta",
+      "uwaga_kontrast": "Tło sekcji = green_cta. Tekst biały. Główny przycisk ODWRÓCONY (białe wypełnienie + tekst green_cta). Sprawdź kontrast białego body na green_cta narzędziem — celuj w ≥4.5:1; jeśli ciasno, przyciemnij tło lub pogrub/powiększ tekst.",
+      "uklad": "Desktop: lewa — kanały kontaktu; prawa — minimalny formularz. Mobile: kanały nad formularzem.",
+      "naglowek": {
+        "pl": "Porozmawiajmy o Twojej sytuacji.",
+        "en": "Let's talk about your situation."
+      },
+      "podtytul": {
+        "pl": "30-minutowa rozmowa: poznajemy potrzebę i podpowiadamy, czy i jak AI ma u Ciebie sens. Wyjdziesz z jasną odpowiedzią — nawet jeśli zabrzmi ona „jeszcze nie teraz”. Bez zobowiązań, bez nachalnej sprzedaży.",
+        "en": "A 30-minute call: we get to grips with what you need, then advise whether — and how — AI makes sense for you. You'll come away with a clear answer, even if it's 'not yet'. No obligation, no hard sell."
+      },
+      "cta_glowne": {
+        "pl": "Umów rozmowę",
+        "en": "Book a call"
+      },
+      "kanaly": [
+        {
+          "ikona": "calendar",
+          "label": {
+            "pl": "Wybierz termin rozmowy",
+            "en": "Pick a time to talk"
+          },
+          "cel": "https://calendly.com/sparx/30min",
+          "placeholder": "Podmień na realny kalendarz (Calendly/cal.com)"
+        },
+        {
+          "ikona": "mail",
+          "label": "kontakt@sparx.ai",
+          "cel": "mailto:kontakt@sparx.ai",
+          "placeholder": "Podmień e-mail"
+        },
+        {
+          "ikona": "phone",
+          "label": "+48 000 000 000",
+          "cel": "tel:+48000000000",
+          "placeholder": "Podmień telefon"
+        },
+        {
+          "ikona": "linkedin",
+          "label": "LinkedIn",
+          "cel": "https://www.linkedin.com/company/sparx",
+          "placeholder": "Podmień profil"
+        }
+      ],
+      "formularz": {
+        "pola": [
+          {
+            "name": "imie",
+            "label": {
+              "pl": "Imię",
+              "en": "Name"
+            },
+            "wymagane": true
+          },
+          {
+            "name": "firma",
+            "label": {
+              "pl": "Firma",
+              "en": "Company"
+            },
+            "wymagane": false
+          },
+          {
+            "name": "email",
+            "label": "E-mail",
+            "typ": "email",
+            "wymagane": true
+          },
+          {
+            "name": "wiadomosc",
+            "label": {
+              "pl": "Wiadomość",
+              "en": "Message"
+            },
+            "typ": "textarea",
+            "wymagane": false
+          }
+        ],
+        "potwierdzenie": {
+          "pl": "Dziękujemy! Odezwiemy się w ciągu 24 godzin.",
+          "en": "Thank you — we'll get back to you within 24 hours."
+        }
+      }
+    }
+  ],
+  "stopka": {
+    "tlo": "forest",
+    "tagline": {
+      "pl": "Partner technologiczny AI. Budujemy rozwiązania, które są Twoje.",
+      "en": "Your technology partner for AI. We build solutions you own."
+    },
+    "kolumny": [
+      {
+        "tytul": {
+          "pl": "Nawigacja",
+          "en": "Navigation"
+        },
+        "linki": [
+          "Problem",
+          "Rozwiązanie",
+          "Realizacje",
+          "Dla kogo",
+          "Kontakt"
+        ]
+      },
+      {
+        "tytul": {
+          "pl": "Realizacje",
+          "en": "Work"
+        },
+        "linki": [
+          {
+            "label": "NFZ Radar",
+            "cel": "https://nfz-radar.pl",
+            "target": "_blank"
+          },
+          {
+            "label": "NCBR Radar",
+            "cel": "https://ncbr-radar.pl",
+            "target": "_blank"
+          },
+          {
+            "label": "Przetargi Radar",
+            "cel": "https://przetargi-radar.pl",
+            "target": "_blank"
+          }
+        ]
+      },
+      {
+        "tytul": {
+          "pl": "Kontakt",
+          "en": "Contact"
+        },
+        "linki": [
+          "kontakt@sparx.ai",
+          "+48 000 000 000",
+          "Polska · NIP 7792229459"
+        ]
+      }
+    ],
+    "linia_zrodel": "Źródła: MIT 2025 · S&P Global 2025 · EY 2026 · The Conference Board 2026 · Bain / Capital One 2025.  © 2026 Sparx."
+  },
+  "zasady_globalne": {
+    "jedno_cta": [
+      "Jedno dominujące CTA „Umów rozmowę”/„Book a call” (green_cta) — reszta akcji wizualnie podrzędna (ghost).",
+      "Na sekcji Kontakt (tło green_cta) przycisk odwrócony: białe wypełnienie + tekst green_cta.",
+      "Najważniejsza droga: kalendarz (Calendly/cal.com) — klient wybiera termin bez formularza.",
+      "Klikalny mailto: i tel: (na mobile telefon = jeden tap).",
+      "CTA zawsze pod ręką: sticky nagłówek (desktop) + sticky dolny pasek (mobile).",
+      "Formularz minimalny: imię + e-mail wymagane, reszta opcjonalna; jasne potwierdzenie po wysłaniu.",
+      "Miękka furtka dla niezdecydowanych: newsletter „Radar Report”.",
+      "Linki wychodzące do realnych Radarów otwieraj w nowej karcie (target=_blank, rel=noopener)."
+    ],
+    "mobile_first": [
+      "Hero skrócony: H1 + podtytuł + „Umów rozmowę” above the fold; grafika „szczytów” ukryta.",
+      "Sticky dolny pasek z „Umów rozmowę” + ikona telefonu (tel:).",
+      "Nawigacja jako hamburger + pełnoekranowe menu.",
+      "Pola dotykowe min. 44×44 px, wysokie pola formularza.",
+      "Wszystko w jednej kolumnie; liczniki w kolumnie; 5 kroków pionowo; karty case study pełna szerokość lub karuzela.",
+      "Lekkie SVG, brak ciężkich animacji."
+    ],
+    "seo_i18n": {
+      "i18n": "Osobne ścieżki /pl i /en + hreflang i x-default → PL (nie tylko przełącznik w pamięci przeglądarki). Każda wersja językowa ma własne meta (title/description) i własny og-image.",
+      "title": {
+        "pl": "Sparx — zbuduj własne AI i zaoszczędź miliony",
+        "en": "Sparx — build your own AI and save millions"
+      },
+      "description": {
+        "pl": "Partner technologiczny AI. Budujemy rozwiązania, które należą do Ciebie — sprawdzone na tanim teście, zanim zainwestujesz. Zgodne z RODO, klasy produkcyjnej.",
+        "en": "Your technology partner for AI. We build solutions you own — proven on a low-cost test before you invest. GDPR-compliant and production-grade."
+      },
+      "og_image": "Ciemne tło forest, hasło główne, zielony motyw szewronów (1200×630). Osobna wersja z hasłem EN dla /en."
+    },
+    "dostepnosc": [
+      "Kontrast AA (uwaga: lime tylko na ciemnym tle, jako duże liczby; biały tekst na green_cta w sekcji Kontakt — przetestuj).",
+      "Widoczne stany focus (pierścień green), pełna obsługa klawiatury.",
+      "prefers-reduced-motion respektowane.",
+      "alt na wszystkich grafikach (PL/EN)."
+    ],
+    "zgodnosc_compliance": [
+      "Baner zgody na cookies/analitykę (sprzedajemy zgodność — strona musi ją mieć). Analityka ładowana dopiero po zgodzie.",
+      "Polityka prywatności jako podstrona (szablon RODO do weryfikacji prawnej)."
+    ]
+  },
+  "guardraile": [
+    "NIE twórz logotypów klientów ani fałszywych opinii/liczb.",
+    "Karta Retail bez nazwy klienta — PL „duża sieć drogeryjna”, EN „a major health & beauty retailer”. Prawdziwej nazwy klienta NIE umieszczać w pliku ani na stronie.",
+    "Zweryfikowane liczby (czerwiec 2026): 80% prezesów zwiększa nakłady na AI (EY 2026), 95% pilotaży bez zwrotu (MIT 2025), 38% prezesów w USA wskazuje AI jako zagrożenie (Conference Board 2026), 42% firm porzuca projekty AI przed produkcją (S&P Global 2025), 59% kupujących w USA używa AI (Bain / Capital One 2025). NIE używać: niezweryfikowanej statystyki lock-in 94% ani błędnego „60% spowolniło (EY)”.",
+    "Linki żywe tylko do realnych produktów: nfz-radar.pl, ncbr-radar.pl, przetargi-radar.pl — w nowej karcie.",
+    "Dane kontaktowe (e-mail, telefon, kalendarz, LinkedIn) i domena to PLACEHOLDERY — oznacz je do podmiany. Rekomendacja: porzucić .wtf na rzecz domeny budującej zaufanie (np. sparx.ai).",
+    "Zweryfikuj NIP 7792229459 (czy poprawny i czy ma być publiczny) zanim trafi do stopki.",
+    "Trzymaj przekaz UNIWERSALNY — branże to dowód, nie pozycjonowanie. Nie zawężaj Sparx do „firmy medycznej”.",
+    "EN = native British English, nie tłumaczenie. Żadnych amerykanizmów ani kalek z polskiego.",
+    "Zrzuty produktów i zdjęcia partnerów zostaw jako oznaczone placeholdery [[ … ]] do podmiany.",
+    "Zanim zalinkujesz i nazwiesz „działającym produktem” przetargi-radar.pl — potwierdź, że jest publicznie dostępny. (nfz-radar.pl, ncbr-radar.pl są publiczne.)"
+  ],
+  "checklista_odbioru": [
+    "Hasło „Zbuduj własne AI i zaoszczędź miliony.” + CTA „Umów rozmowę” widoczne above the fold na desktopie I telefonie.",
+    "Sekcje naprzemienne (ciemna/jasna), Kontakt na green_cta z ODWRÓCONYM przyciskiem (widoczny).",
+    "Liczby 95% / 38% / 42% wielkie, z count-up; lime tylko na ciemnym.",
+    "Pięć kart realizacji z poprawnym copy PL/EN, Retail anonimowy, glosy EN przy NFZ/NCBR/Przetargi.",
+    "Diagram 5 kroków + 3 modele („Zespół dedykowany” / „Dedicated team”, nie „body-leasing”).",
+    "Sticky dolny pasek CTA na mobile, hamburger, jedna kolumna.",
+    "PL/EN przełącznik działa między /pl i /en; domyślnie PL; obie wersje równie dopracowane.",
+    "Angielski bez amerykanizmów (drugstore/license/million-dollar) i bez kalk.",
+    "Placeholdery (kontakt, zrzuty, zdjęcia, domena, NIP) wyraźnie oznaczone.",
+    "Kontrast AA (w tym test sekcji Kontakt), focus, alt, prefers-reduced-motion, baner cookies.",
+    "Sekcja Problem otwiera się ramą „80% CEO zwiększa nakłady na AI (EY 2026) — kierunek słuszny”, a dopiero potem liczby ryzyka (95/38/42%)."
+  ]
+}
