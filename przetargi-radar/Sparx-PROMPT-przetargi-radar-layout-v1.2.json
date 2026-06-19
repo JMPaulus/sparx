@@ -1,13 +1,20 @@
 {
   "_meta": {
     "nazwa": "Sparx — nowa wersja przetargi-radar.pl (kolorystyka i narracja Sparx) dla Claude Design",
-    "wersja": "1.1",
+    "wersja": "1.2",
     "data": "2026-06-16",
     "zmiany_v1_1": [
       "Wpisano animacje (radar-pipeline, count-up, wskaźniki dopasowań, reveal na scroll, radar sweep, hover) z wariantami prefers-reduced-motion.",
       "Zasada języka: WSZYSTKO po polsku z pełnymi ogonkami (ą ć ę ł ń ó ś ź ż).",
       "Sekcja „Dla kogo” rozszerzona o instytucje publiczne (dwie kolumny: Firmy / Instytucje publiczne).",
       "Dodano sekcję „Analityka rynkowa i RPWDL” (Market Intelligence + Mapa RPWDL z prezentacji)."
+    ],
+    "zmiany_v1_2": [
+      "Debugging: usunięto duplikat listy kroków pipeline (hero.wizual_pipeline odsyła teraz do `animacje.radar_pipeline_live.kroki`).",
+      "Ujednolicono format liczb na polski (przecinek dziesiętny): 94,7% oraz 0,94.",
+      "Dodano brakujący token `graphite` do `design_system.kolory_kluczowe` (używany przez sekcję „Dlaczego Sparx”).",
+      "Ujednolicono token tła sekcji Kontakt: green_cta → green-cta.",
+      "Zsynchronizowano metryki w zasadach (94,7% / 24 h / 100% / ~75%; usunięto stałe „5min”)."
     ],
     "zrodlo": "https://www.przetargi-radar.pl/ (SPA; treść z meta + bundla JS) + prezentacja Przetargi Radar + strona Sparx (narracja)",
     "czego_dotyczy": "NOWA WERSJA strony produktowej Przetargi Radar — landing/prezentacja produktu. Spójna z KOLORYSTYKĄ i PRZEKAZEM strony Sparx. To nie czysty re-skin: wplatamy narrację Sparx, zachowując realne funkcje i hasła produktu.",
@@ -17,7 +24,7 @@
     "uwaga_o_design_systemie": "Design system ZATWIERDZONY (Sparx Green, Inter, komponenty). KLUCZOWE: obecny site jest „neonowy/techy” — przejdź na spokojną paletę Sparx, BEZ neonów i poświat.",
     "uwaga_o_zalacznikach": "Zrzuty przetargi-radar.pl traktuj jako referencję układu/funkcji, NIE stylu. Kolory/typografia ze Sparx. Wrzucaj wprost tylko realne zasoby (logo Sparx, zrzuty produktu).",
     "zrodla_prawdy": [
-      "przetargi-radar.pl — meta, tagline, nawigacja, sekcja „Jak działa”, animacja pipeline, TRAFNOŚĆ 94.7% (do zachowania)",
+      "przetargi-radar.pl — meta, tagline, nawigacja, sekcja „Jak działa”, animacja pipeline, TRAFNOŚĆ 94,7% (do zachowania)",
       "Prezentacja Przetargi Radar — moduły, dane (24h/100%/5min/~75%), analityka, RPWDL, bezpieczeństwo (materiał do wplecenia)",
       "Strona Sparx — narracja, paleta, ton, zasady spójności"
     ]
@@ -42,7 +49,8 @@
       "green-cta": "#0C7D1C — jedyne dominujące CTA, linki na jasnym",
       "lime": "#5CC76C — POP: duże liczby / strumień danych w pipeline TYLKO na ciemnym",
       "mist": "#5B6B60 — tekst drugorzędny na jasnym",
-      "mist-dark": "#9DB0A2 — tekst drugorzędny na ciemnym"
+      "mist-dark": "#9DB0A2 — tekst drugorzędny na ciemnym",
+      "graphite": "#21262A — neutralna ciemna sekcja (trzeci ton dla rytmu, np. „Dlaczego Sparx”)"
     },
     "typografia": "Inter (system-wide); nagłówki wagą + ciasny tracking; liczby-statystyki 64–96px; eyebrow UPPERCASE +0.16em",
     "komponenty": ["Title/Hero", "Button (pill, green-cta)", "Card (radius 16, miękki zielonkawy cień)", "Badge/pill (tagi, CPV, źródła)", "StatBlock (count-up)", "SectorCard/feature card", "ContrastRow"],
@@ -53,7 +61,7 @@
   "mapowanie_kolorow": {
     "neon-green / techy dark (obecnie)": "Sparx: forest #0C1A12 (tło ciemne) + green #109B24 (akcent) + lime #5CC76C (POP na ciemnym) — BEZ neonowych poświat",
     "strumień danych / „radar-pipeline — live”": "forest tło + siatka kropek; etykiety [BZP][TED][RADAR][MODEL] jako pigułki; tekst lime/green; bez glow",
-    "liczby (TRAFNOŚĆ 94.7%, DOPASOWANIE 0.94)": "StatBlock — lime na ciemnym / green-cta na jasnym; mały druk = źródło/„dane platformy”",
+    "liczby (TRAFNOŚĆ 94,7%, DOPASOWANIE 0,94)": "StatBlock — lime na ciemnym / green-cta na jasnym; mały druk = źródło/„dane platformy”",
     "tło stron jasne": "cloud #F3F7F3; karty white radius 16",
     "CTA": "green-cta (pill); na ciemnym tekst biały, na zielonym tle przycisk odwrócony (biały + tekst green-cta)"
   },
@@ -116,7 +124,7 @@
     "Kolorystyka i ton jak strona Sparx: Sparx Green, Inter, spokojnie/premium, BEZ neonów i poświat (zmiana wobec obecnego stylu).",
     "Zachowaj realne hasła i funkcje produktu (tagline „Algorytm szuka, Ty decydujesz”, skan BZP/TED 24/7, AI matching, analityka, nawigacja Funkcje/Jak działa/Dla kogo/Kontakt).",
     "Wpleć narrację Sparx (sekcja `narracja_sparx_do_wplecenia`) — funkcje jako korzyści, dowód-first.",
-    "Liczby ze źródłem/etykietą: TRAFNOŚĆ 94.7% i 24h/100%/5min/~75% = „dane platformy”; liczby z animacji (2 847 ogłoszeń, 412, +12% ortopedia, 0.94) to PRZYKŁADOWE dane demo — oznacz, nie podawaj jako twarde KPI.",
+    "Liczby ze źródłem/etykietą: TRAFNOŚĆ 94,7%, 24 h, 100%, ~75% = „dane platformy”; liczby z animacji (2 847 ogłoszeń, 412, +12% w ortopedii, 0,94) to PRZYKŁADOWE dane demo — oznacz, nie podawaj jako twarde KPI.",
     "Bez emoji, bez krypto/Web3, bez neonowej estetyki.",
     "Kontrast/„vs” (jeśli użyty): stary, ręczny sposób vs Radar — nie deprecjonuj innych dostawców.",
     "Zgodność i bezpieczeństwo: RODO; dane klienta nie trenują AI; modele wdrożenia (SaaS dedykowany / on-premise).",
@@ -148,19 +156,7 @@
       "wizual_pipeline": {
         "rola": "Spokojny, „żywy” strumień radaru (zachowaj koncept z obecnej strony, przestyluj na Sparx — forest, lime/green, bez neonu).",
         "etykiety": ["[BZP]", "[TED]", "[RADAR]", "[MODEL]"],
-        "kroki_demo": [
-          "Połączono ze źródłem danych...",
-          "Pobrano 2 847 nowych ogłoszeń",
-          "Skanowanie europejskich zamówień...",
-          "Znaleziono 412 przetargów z kategorii medycznej",
-          "Uruchamianie modelu dopasowań...",
-          "Analiza CPV: 33141000 → dopasowanie 94,2%",
-          "Czyszczenie i walidacja wyników...",
-          "Generowanie powiadomień → 23 dopasowania",
-          "Aktualizacja danych rynkowych...",
-          "Trendy: wzrost +12% w segmencie ortopedycznym",
-          "Pipeline zakończony — gotowe do przeglądu"
-        ],
+        "kroki_demo": "Patrz `animacje.radar_pipeline_live.kroki` (11 kroków demo) — nie powielaj listy; to dane przykładowe.",
         "uwaga": "To dane PRZYKŁADOWE (demo animacji) — oznacz jako ilustracyjne, nie jako twarde statystyki."
       }
     },
@@ -278,7 +274,7 @@
     },
     {
       "id": "kontakt",
-      "tlo": "green_cta",
+      "tlo": "green-cta",
       "rola": "Domknięcie + CTA.",
       "sparx_styl": "Tło green-cta, biały tekst, przycisk ODWRÓCONY (biały + tekst green-cta).",
       "copy": {
@@ -307,7 +303,7 @@
   "czego_unikac": [
     "Neonowej, techno-krypto estetyki i poświat (przejście na spokojny Sparx Green).",
     "Emoji.",
-    "Podawania liczb demo (2 847, 412, +12%, 0.94) jako twardych KPI — oznacz jako przykładowe.",
+    "Podawania liczb demo (2 847, 412, +12%, 0,94) jako twardych KPI — oznacz jako przykładowe.",
     "Deprecjonowania innych dostawców; zawężania marki (pamiętaj „jeden silnik, wiele branż”).",
     "Zmyślonych statystyk, logotypów klientów, niezweryfikowanych danych rynkowych."
   ],
