@@ -1,0 +1,316 @@
+{
+  "_meta": {
+    "nazwa": "Sparx — nowa wersja przetargi-radar.pl (kolorystyka i narracja Sparx) dla Claude Design",
+    "wersja": "1.2",
+    "data": "2026-06-16",
+    "zmiany_v1_1": [
+      "Wpisano animacje (radar-pipeline, count-up, wskaźniki dopasowań, reveal na scroll, radar sweep, hover) z wariantami prefers-reduced-motion.",
+      "Zasada języka: WSZYSTKO po polsku z pełnymi ogonkami (ą ć ę ł ń ó ś ź ż).",
+      "Sekcja „Dla kogo” rozszerzona o instytucje publiczne (dwie kolumny: Firmy / Instytucje publiczne).",
+      "Dodano sekcję „Analityka rynkowa i RPWDL” (Market Intelligence + Mapa RPWDL z prezentacji)."
+    ],
+    "zmiany_v1_2": [
+      "Debugging: usunięto duplikat listy kroków pipeline (hero.wizual_pipeline odsyła teraz do `animacje.radar_pipeline_live.kroki`).",
+      "Ujednolicono format liczb na polski (przecinek dziesiętny): 94,7% oraz 0,94.",
+      "Dodano brakujący token `graphite` do `design_system.kolory_kluczowe` (używany przez sekcję „Dlaczego Sparx”).",
+      "Ujednolicono token tła sekcji Kontakt: green_cta → green-cta.",
+      "Zsynchronizowano metryki w zasadach (94,7% / 24 h / 100% / ~75%; usunięto stałe „5min”)."
+    ],
+    "zrodlo": "https://www.przetargi-radar.pl/ (SPA; treść z meta + bundla JS) + prezentacja Przetargi Radar + strona Sparx (narracja)",
+    "czego_dotyczy": "NOWA WERSJA strony produktowej Przetargi Radar — landing/prezentacja produktu. Spójna z KOLORYSTYKĄ i PRZEKAZEM strony Sparx. To nie czysty re-skin: wplatamy narrację Sparx, zachowując realne funkcje i hasła produktu.",
+    "jezyk": "Polski (EN opcjonalnie przez LangToggle Sparx).",
+    "uwaga_jezyk": "WSZYSTKIE teksty po polsku z PEŁNYMI polskimi znakami (ą ć ę ł ń ó ś ź ż). Źródłowe stringi bez ogonków (np. „Blad”, „wojewodztwo”, „snapshotow”, „dopasowan”) POPRAW na poprawne polskie. Nigdy nie zostawiaj tekstu bez ogonków.",
+    "jak_uzyc": "Wklej CAŁY ten JSON do Claude Design w projekcie z systemem Sparx. Buduj sekcjami wg `sekcje`. NIE proponuj design systemu od nowa.",
+    "uwaga_o_design_systemie": "Design system ZATWIERDZONY (Sparx Green, Inter, komponenty). KLUCZOWE: obecny site jest „neonowy/techy” — przejdź na spokojną paletę Sparx, BEZ neonów i poświat.",
+    "uwaga_o_zalacznikach": "Zrzuty przetargi-radar.pl traktuj jako referencję układu/funkcji, NIE stylu. Kolory/typografia ze Sparx. Wrzucaj wprost tylko realne zasoby (logo Sparx, zrzuty produktu).",
+    "zrodla_prawdy": [
+      "przetargi-radar.pl — meta, tagline, nawigacja, sekcja „Jak działa”, animacja pipeline, TRAFNOŚĆ 94,7% (do zachowania)",
+      "Prezentacja Przetargi Radar — moduły, dane (24h/100%/5min/~75%), analityka, RPWDL, bezpieczeństwo (materiał do wplecenia)",
+      "Strona Sparx — narracja, paleta, ton, zasady spójności"
+    ]
+  },
+  "rola_i_zadanie": {
+    "rola": "Starszy projektant produktu i copywriter konwersji (PL). Forma i słowo sprzedają — spokojnie, premium, głos rozsądku.",
+    "zadanie": "Zaprojektuj nową wersję strony produktowej Przetargi Radar w systemie Sparx: kolorystyka, typografia, komponenty i ton jak na stronie Sparx; zachowaj realne funkcje i hasła produktu, wplataj narrację Sparx.",
+    "jeden_cel": "Jedno dominujące CTA: „Umów demo” (kolor green-cta) — alternatywnie „Umów rozmowę”.",
+    "efekt_na_odbiorcy": "Decydent (dostawca wyrobów/sprzętu medycznego) ma poczuć: „przestaję przegapiać przetargi, wiem o rynku więcej niż konkurencja, a dane są bezpieczne i moje”.",
+    "zasada_nadrzedna": "WARTOŚĆ KLIENTA NA PIERWSZYM MIEJSCU + narracja Sparx. Funkcje pokazuj jako korzyści. Wpleć filary Sparx: najpierw dowód (działający produkt, demo) · Twoje dane bezpieczne · partner, nie dostawca · zgodność · „jeden silnik, wiele branż”."
+  },
+  "co_to_jest": "Przetargi Radar — inteligentny system dopasowania zamówień publicznych do oferty firmy. Automatyczne skanowanie BZP, TED i innych źródeł 24/7, AI matching (CPV/EMDN + treść OPZ), analityka rynkowa i monitoring konkurencji. Dla branży medycznej/farmaceutycznej. Tagline: „Algorytm szuka, Ty decydujesz”.",
+  "design_system": {
+    "status": "ZATWIERDZONY — nie proponuj od nowa",
+    "nazwa_palety": "Sparx Green",
+    "zasada_naczelna": "Spokojnie, premium, BEZ neonów i poświat (zamiast obecnego neon-green). Forest jako baza ciemnych sekcji, green do akcentów/CTA, lime jako POP tylko na dużych liczbach na ciemnym.",
+    "kolory_kluczowe": {
+      "forest": "#0C1A12 — ciemne sekcje (hero, pipeline), mocny tekst",
+      "cloud": "#F3F7F3 — jasne sekcje",
+      "white": "#FFFFFF — karty na jasnym",
+      "green": "#109B24 — akcenty, ikony, podkreślenia",
+      "green-cta": "#0C7D1C — jedyne dominujące CTA, linki na jasnym",
+      "lime": "#5CC76C — POP: duże liczby / strumień danych w pipeline TYLKO na ciemnym",
+      "mist": "#5B6B60 — tekst drugorzędny na jasnym",
+      "mist-dark": "#9DB0A2 — tekst drugorzędny na ciemnym",
+      "graphite": "#21262A — neutralna ciemna sekcja (trzeci ton dla rytmu, np. „Dlaczego Sparx”)"
+    },
+    "typografia": "Inter (system-wide); nagłówki wagą + ciasny tracking; liczby-statystyki 64–96px; eyebrow UPPERCASE +0.16em",
+    "komponenty": ["Title/Hero", "Button (pill, green-cta)", "Card (radius 16, miękki zielonkawy cień)", "Badge/pill (tagi, CPV, źródła)", "StatBlock (count-up)", "SectorCard/feature card", "ContrastRow"],
+    "motywy": ["wznoszące się szczyty (hero-peaks)", "siatka kropek na ciemnych sekcjach", "radar-pipeline jako spokojny strumień danych (green/lime na forest, BEZ neonowej poświaty)"],
+    "ikony": "cienkie ikony liniowe (Lucide); recolor green/currentColor. ZERO emoji.",
+    "ruch": "Pipeline/animacje powściągliwe; respektuj prefers-reduced-motion."
+  },
+  "mapowanie_kolorow": {
+    "neon-green / techy dark (obecnie)": "Sparx: forest #0C1A12 (tło ciemne) + green #109B24 (akcent) + lime #5CC76C (POP na ciemnym) — BEZ neonowych poświat",
+    "strumień danych / „radar-pipeline — live”": "forest tło + siatka kropek; etykiety [BZP][TED][RADAR][MODEL] jako pigułki; tekst lime/green; bez glow",
+    "liczby (TRAFNOŚĆ 94,7%, DOPASOWANIE 0,94)": "StatBlock — lime na ciemnym / green-cta na jasnym; mały druk = źródło/„dane platformy”",
+    "tło stron jasne": "cloud #F3F7F3; karty white radius 16",
+    "CTA": "green-cta (pill); na ciemnym tekst biały, na zielonym tle przycisk odwrócony (biały + tekst green-cta)"
+  },
+  "narracja_sparx_do_wplecenia": {
+    "najpierw_dowod": "Przetargi Radar to DZIAŁAJĄCY produkt — zacznij od demo na realnych danych, zanim zdecydujesz. „Najpierw dowód, potem inwestycja”.",
+    "twoje_dane": "Twoje karty produktowe i dane są bezpieczne; dane klienta nie trenują modeli AI; dostępne modele wdrożenia (SaaS dedykowany / on-premise).",
+    "partner_nie_dostawca": "Sparx wdraża z Tobą i rozwija; nie sprzedaje „pudełka i znika”.",
+    "zgodnosc": "RODO, dane z wielu źródeł publicznych; klasa produkcyjna.",
+    "jeden_silnik_wiele_branz": "Przetargi Radar to jeden z Radarów Sparx (NFZ, NCBR, Przetargi) — ten sam silnik działa w wielu branżach. Subtelna atrybucja „od Sparx”.",
+    "ton": "Głos rozsądku, bez hype'u; każda liczba ze źródłem lub etykietą „dane platformy”; bez neonów/krypto/emoji."
+  },
+  "animacje": {
+    "zasada": "Animacje to część charakteru produktu — zachowaj je, ale w duchu Sparx: spokojne, premium, BEZ neonowych poświat. ZAWSZE respektuj prefers-reduced-motion (wyłącz lub uprość ruch).",
+    "radar_pipeline_live": {
+      "opis": "Główny wizual w hero: „żywy” strumień radaru, który na bieżąco przewija kroki przetwarzania (jak log/ticker). Etykiety źródeł [BZP] [TED] [RADAR] [MODEL] zapalają się po kolei; pod nimi pojawiają się komunikaty kolejnych kroków; po ostatnim pętla wraca do początku.",
+      "kroki": [
+        "Połączono ze źródłem danych...",
+        "Pobrano 2 847 nowych ogłoszeń",
+        "Skanowanie europejskich zamówień...",
+        "Znaleziono 412 przetargów z kategorii medycznej",
+        "Uruchamianie modelu dopasowań...",
+        "Analiza CPV: 33141000 → dopasowanie 94,2%",
+        "Czyszczenie i walidacja wyników...",
+        "Generowanie powiadomień → 23 dopasowania",
+        "Aktualizacja danych rynkowych...",
+        "Trendy: wzrost +12% w segmencie ortopedycznym",
+        "Pipeline zakończony — gotowe do przeglądu"
+      ],
+      "styl_sparx": "Tło forest + subtelna siatka kropek; tekst kroków lime/green; aktywny krok jaśniejszy, poprzednie przygaszone (mist-dark); migający wskaźnik (kursor). BEZ neonowej poświaty.",
+      "ruch": "Kolejny krok co ~1,2–1,8 s (fade + slide-up o kilka px). Nagłówek paska „radar — na żywo” z pulsującą kropką lime. Po ostatnim kroku krótka pauza i restart pętli.",
+      "reduced_motion": "Bez przewijania i pulsowania — pokaż statycznie pełną listę kroków (wszystkie widoczne)."
+    },
+    "liczby_count_up": {
+      "opis": "Duże liczby (TRAFNOŚĆ 94,7%, 24 h, 100%, ~75%) liczą się „od zera” przy wejściu w widok.",
+      "ruch": "Count-up ~1,6 s, ease-out; lime na ciemnym / green-cta na jasnym.",
+      "reduced_motion": "Pokaż wartość docelową od razu."
+    },
+    "wskazniki_dopasowan": {
+      "opis": "Drobne wskaźniki dopasowań (np. „DOPASOWANIE: 0,94”, „TRAFNOŚĆ”) subtelnie aktualizują wartość lub migoczą.",
+      "styl_sparx": "green/lime na forest, bez neonu.",
+      "reduced_motion": "Wartości statyczne."
+    },
+    "reveal_na_scroll": {
+      "opis": "Sekcje i karty pojawiają się delikatnym fade-up przy scrollu (jak na stronie Sparx).",
+      "ruch": "dur ~640 ms, ease-out; nigdy nie zostawiaj treści ukrytej (opacity 0), gdyby JS nie zadziałał.",
+      "reduced_motion": "Bez ruchu — treść od razu widoczna."
+    },
+    "radar_sweep_logo": {
+      "opis": "Ikona radaru z obracającym się „sweepem” (jak w logo i loaderze).",
+      "styl_sparx": "Linia sweep w green/lime na forest.",
+      "reduced_motion": "Statyczna ikona, bez obrotu."
+    },
+    "hover_i_stany": {
+      "opis": "Hover: CTA przyciemnia się (green-cta → hover), karty unoszą się o 3 px (jasne) lub rozjaśniają obwódkę (ciemne), linki nudżują strzałkę.",
+      "reduced_motion": "Bez transformacji ruchu — pozostaw samą zmianę koloru."
+    }
+  },
+  "zasady_spojnosci": [
+    "JĘZYK: wszystkie teksty po polsku z PEŁNYMI polskimi znakami (ą ć ę ł ń ó ś ź ż). Nigdy wersji bez ogonków — np. „Błąd prognozy” nie „Blad”, „województwo” nie „wojewodztwo”, „snapshotów” nie „snapshotow”, „dopasowań” nie „dopasowan”.",
+    "Kolorystyka i ton jak strona Sparx: Sparx Green, Inter, spokojnie/premium, BEZ neonów i poświat (zmiana wobec obecnego stylu).",
+    "Zachowaj realne hasła i funkcje produktu (tagline „Algorytm szuka, Ty decydujesz”, skan BZP/TED 24/7, AI matching, analityka, nawigacja Funkcje/Jak działa/Dla kogo/Kontakt).",
+    "Wpleć narrację Sparx (sekcja `narracja_sparx_do_wplecenia`) — funkcje jako korzyści, dowód-first.",
+    "Liczby ze źródłem/etykietą: TRAFNOŚĆ 94,7%, 24 h, 100%, ~75% = „dane platformy”; liczby z animacji (2 847 ogłoszeń, 412, +12% w ortopedii, 0,94) to PRZYKŁADOWE dane demo — oznacz, nie podawaj jako twarde KPI.",
+    "Bez emoji, bez krypto/Web3, bez neonowej estetyki.",
+    "Kontrast/„vs” (jeśli użyty): stary, ręczny sposób vs Radar — nie deprecjonuj innych dostawców.",
+    "Zgodność i bezpieczeństwo: RODO; dane klienta nie trenują AI; modele wdrożenia (SaaS dedykowany / on-premise).",
+    "Atrybucja Sparx subtelna (logo/stopka, link sparx.ai); „jeden silnik, wiele branż”.",
+    "Dostępność: kontrast AA, focus (pierścień green), prefers-reduced-motion, mobile-first, pola ≥44px.",
+    "Domena/kontakt: ujednolić ze stroną Sparx (domyślnie sparx.ai / przetargi-radar.pl jako produkt). Do potwierdzenia."
+  ],
+  "sekcje": [
+    {
+      "id": "nav",
+      "tlo": "forest",
+      "rola": "Sticky nav.",
+      "sparx_styl": "Tło forest z rozmyciem; logo „Przetargi Radar” + mała sygnatura „od Sparx”; linki mist-dark→biały; CTA green-cta (pill).",
+      "linki": ["Funkcje", "Jak działa", "Dla kogo", "Kontakt"],
+      "cta": "Umów demo"
+    },
+    {
+      "id": "hero",
+      "tlo": "forest",
+      "rola": "Obietnica + tagline + CTA + wizual radar-pipeline + dowód.",
+      "sparx_styl": "Forest + siatka kropek + motyw szczytów; H1 Inter bold; akcent lime na kluczowej frazie; CTA green-cta + ghost „Zobacz, jak działa”.",
+      "copy": {
+        "eyebrow": "Inteligentne dopasowania zamówień publicznych",
+        "naglowek": "Jeden system, tysiące przetargów dopasowanych do Twojej oferty.",
+        "podtytul": "Algorytm szuka, Ty decydujesz. Automatycznie skanujemy BZP, TED i inne źródła 24/7 i dopasowujemy ogłoszenia do Twoich produktów.",
+        "cta": ["Umów demo", "Zobacz, jak działa"],
+        "linia_dowodu": "Działający produkt branży medycznej · TRAFNOŚĆ dopasowań 94,7% (dane platformy)"
+      },
+      "wizual_pipeline": {
+        "rola": "Spokojny, „żywy” strumień radaru (zachowaj koncept z obecnej strony, przestyluj na Sparx — forest, lime/green, bez neonu).",
+        "etykiety": ["[BZP]", "[TED]", "[RADAR]", "[MODEL]"],
+        "kroki_demo": "Patrz `animacje.radar_pipeline_live.kroki` (11 kroków demo) — nie powielaj listy; to dane przykładowe.",
+        "uwaga": "To dane PRZYKŁADOWE (demo animacji) — oznacz jako ilustracyjne, nie jako twarde statystyki."
+      }
+    },
+    {
+      "id": "problem",
+      "tlo": "cloud",
+      "rola": "Koszt status quo (z prezentacji) — rama wartości.",
+      "sparx_styl": "Eyebrow + nagłówek + 3–4 punkty/Staty; spokojnie.",
+      "copy": {
+        "naglowek": "Ile kosztuje ręczne szukanie przetargów",
+        "punkty": [
+          "Godziny dziennie na przeszukiwaniu BZP i platform zakupowych.",
+          "Pominięte przetargi — niestandardowe kody CPV giną w natłoku ogłoszeń.",
+          "1–3 dni na analizę OPZ blokują zespół.",
+          "Brak danych: ile płacą inni, kto wygrywa, jaki ma potencjał szpital."
+        ]
+      }
+    },
+    {
+      "id": "jak-dziala",
+      "tlo": "forest",
+      "rola": "3 kroki działania (realne hasła ze strony) + liczby platformy.",
+      "sparx_styl": "ProcessSlide-like: 3 kroki ze strzałkami; StatBlock z liczbami (lime na ciemnym).",
+      "copy": {
+        "naglowek": "Jak działa",
+        "kroki": [
+          { "tytul": "Skanujemy źródła 24/7", "opis": "Automatycznie skanujemy BZP, TED i inne źródła oraz dane publiczne o zamawiających." },
+          { "tytul": "Algorytm analizuje i dopasowuje", "opis": "AI analizuje treść i porównuje ogłoszenia z Twoimi produktami (CPV/EMDN + treść OPZ)." },
+          { "tytul": "Gotowe dopasowania z oceną trafności", "opis": "Reagujesz na najlepsze — od ogłoszenia do decyzji w 24 godziny." }
+        ],
+        "liczby": [
+          { "wartosc": "94,7%", "opis": "trafność dopasowań", "zrodlo": "dane platformy" },
+          { "wartosc": "24 h", "opis": "od publikacji do oceny AI", "zrodlo": "dane platformy" },
+          { "wartosc": "100%", "opis": "pokrycia ogłoszeń BZP", "zrodlo": "dane platformy" },
+          { "wartosc": "~75%", "opis": "krótsza analiza OPZ", "zrodlo": "dane platformy" }
+        ]
+      }
+    },
+    {
+      "id": "funkcje",
+      "tlo": "cloud",
+      "rola": "Siatka funkcji jako korzyści (z prezentacji + strony).",
+      "sparx_styl": "Karty Sparx (radius 16), ikony liniowe green.",
+      "karty": [
+        { "tytul": "Monitoring BZP / TED 24/7", "opis": "Pełne pokrycie ogłoszeń + wtórna weryfikacja AI dla niestandardowych CPV." },
+        { "tytul": "AI matching (CPV/EMDN + OPZ)", "opis": "Dwustopniowe dopasowanie: scoring CPV/EMDN, potem głęboka analiza treści OPZ." },
+        { "tytul": "Analityka rynkowa i trendy", "opis": "Trendy rynkowe, wolumen, kto wygrywa i za ile (benchmarking cen)." },
+        { "tytul": "Monitoring konkurencji", "opis": "Ranking zwycięzców, udziały, historia ofert." },
+        { "tytul": "Profil zamawiającego / RPWDL", "opis": "Mapa placówek, installed base, raport potencjału klienta." },
+        { "tytul": "Raport zgodności i ryzyka", "opis": "Zapisy dyskwalifikujące, gap list, eksport — szybciej i pewniej." }
+      ],
+      "uwaga": "Zakres funkcji dostosuj do realnego produktu; powyższe z prezentacji Przetargi Radar."
+    },
+    {
+      "id": "analityka-rpwdl",
+      "tlo": "forest",
+      "rola": "Analityka rynkowa i wiedza o kliencie (z prezentacji: Market Intelligence + Mapa RPWDL).",
+      "sparx_styl": "Dwa bloki w kartach na ciemnym (obwódki + siatka kropek); mapa Polski (RPWDL) jako wizual; liczby/wykresy w green/lime (bez neonu).",
+      "copy": {
+        "naglowek": "Znaj rynek i klienta",
+        "blok_rynek": {
+          "tytul": "Analityka rynkowa (Market Intelligence)",
+          "punkty": [
+            "Raport wielkości rynku — filtry CPV/EMDN, wykresy i analiza CAGR dla segmentu.",
+            "Analiza konkurencji — ranking zwycięzców, udziały rynkowe, historia ofert.",
+            "Benchmarking cenowy — automatyczna baza rozstrzygnięć z wartościami umów.",
+            "Trend rynkowy rok do roku — dynamika wzrostu segmentów."
+          ]
+        },
+        "blok_klient": {
+          "tytul": "Mapa RPWDL i profil szpitala",
+          "punkty": [
+            "Interaktywna mapa Polski — wszystkie placówki RPWDL z podziałem na województwa.",
+            "Installed base — warstwa sprzętu (TK / RM / PET / roboty) w każdym szpitalu.",
+            "Raport potencjału — installed base + wartość zakupów = priorytetyzacja klientów."
+          ]
+        }
+      }
+    },
+    {
+      "id": "dla-kogo",
+      "tlo": "cloud",
+      "rola": "Adresat — firmy i instytucje publiczne (dwie kolumny).",
+      "sparx_styl": "ContrastRow / dwie kolumny; ikony liniowe green.",
+      "copy": {
+        "naglowek": "Dla firm i instytucji publicznych",
+        "kolumny": [
+          {
+            "tytul": "Firmy (dostawcy)",
+            "tresc": "Dla firm dostarczających wyroby i sprzęt medyczny do przetargów publicznych — zespoły ofertowe i zarząd. Mniej ręcznej pracy, więcej trafnych decyzji, przewaga nad konkurencją. Masz własny pomysł na rozwiązanie i brak zespołu? Zrealizujemy je z Tobą."
+          },
+          {
+            "tytul": "Instytucje publiczne",
+            "tresc": "Dla instytucji i podmiotów sektora publicznego — przejrzystość rynku zamówień, porządek w danych i gotowość na audyt. Jasne podstawy do analiz, raportów i decyzji, zgodnie z misją i wartościami."
+          }
+        ]
+      }
+    },
+    {
+      "id": "dlaczego-sparx",
+      "tlo": "graphite",
+      "rola": "Wplecenie narracji Sparx (dowód, własność danych, partner, zgodność, jeden silnik).",
+      "sparx_styl": "ContrastRow / karty + badge zgodności.",
+      "copy": {
+        "naglowek": "Dlaczego Przetargi Radar od Sparx",
+        "punkty": [
+          "Najpierw dowód, potem inwestycja — zacznij od demo na realnych danych.",
+          "Twoje dane są bezpieczne — dane klienta nie trenują modeli AI; dostępne modele SaaS dedykowany / on-premise.",
+          "Partner, nie dostawca — wdrażamy i rozwijamy razem z Tobą.",
+          "Zgodność i klasa produkcyjna — RODO, dane z wielu źródeł publicznych.",
+          "Jeden silnik, wiele branż — Przetargi Radar to jeden z Radarów Sparx (NFZ, NCBR, Przetargi)."
+        ],
+        "badge": ["RODO / GDPR", "Dane z wielu źródeł", "SaaS / On-premise"]
+      }
+    },
+    {
+      "id": "kontakt",
+      "tlo": "green-cta",
+      "rola": "Domknięcie + CTA.",
+      "sparx_styl": "Tło green-cta, biały tekst, przycisk ODWRÓCONY (biały + tekst green-cta).",
+      "copy": {
+        "naglowek": "Zobacz Przetargi Radar w działaniu",
+        "podtytul": "Umów demo — pokażemy dopasowania na realnych danych z Twojej branży.",
+        "cta": "Umów demo"
+      }
+    },
+    {
+      "id": "stopka",
+      "tlo": "forest",
+      "rola": "Atrybucja + linki + zgodność.",
+      "copy": {
+        "atrybucja": "Przetargi Radar — produkt Sparx. Stworzone przez Sparx (link: sparx.ai). © 2026.",
+        "linki": ["Funkcje", "Jak działa", "Dla kogo", "Kontakt"],
+        "uwaga": "Bez emoji; domenę/kontakt ujednolicić ze stroną Sparx."
+      }
+    }
+  ],
+  "ton_i_redakcja": [
+    "Polski, głos rozsądku, premium; mówisz do „Ty/Ciebie”, o „my”.",
+    "Sentence case; UPPERCASE tylko w eyebrow; polskie cudzysłowy „ ”.",
+    "Każda liczba ze źródłem lub etykietą „dane platformy”; liczby z animacji = przykładowe.",
+    "Jedno dominujące CTA „Umów demo”."
+  ],
+  "czego_unikac": [
+    "Neonowej, techno-krypto estetyki i poświat (przejście na spokojny Sparx Green).",
+    "Emoji.",
+    "Podawania liczb demo (2 847, 412, +12%, 0,94) jako twardych KPI — oznacz jako przykładowe.",
+    "Deprecjonowania innych dostawców; zawężania marki (pamiętaj „jeden silnik, wiele branż”).",
+    "Zmyślonych statystyk, logotypów klientów, niezweryfikowanych danych rynkowych."
+  ],
+  "placeholdery_do_podmiany": [
+    "Logo Przetargi Radar + sygnatura Sparx; ikona radaru recolor green.",
+    "Realne zrzuty produktu (dashboard dopasowań, analityka, mapa RPWDL) — dashed placeholdery.",
+    "Dane kontaktowe i domena (sparx.ai / przetargi-radar.pl) — ujednolicić.",
+    "Potwierdzić metryki produktu (94,7% / 24h / 100% / ~75%) przed publikacją jako twarde."
+  ]
+}
